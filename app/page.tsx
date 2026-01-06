@@ -14,8 +14,10 @@ import SurgeryVideos from '@/components/sections/SurgeryVideos/SurgeryVideos';
 import InstallationMap from '@/components/sections/InstallationMap/InstallationMap';
 import DemoForm from '@/components/sections/DemoForm/DemoForm';
 import type { Product, GalleryItem } from '@/types';
+import useUTMSource from '@/utils/useUTMSource';
 
 export default function Home() {
+    useUTMSource();
     const [galleryProduct, setGalleryProduct] = useState<Product | null>(null);
 
     const scrollTo = (id: string) => {
@@ -66,17 +68,16 @@ export default function Home() {
     };
 
     const openInstallationVideo = (type: string) => {
-        if(type == "vid") {
+        if (type == "vid") {
             setGalleryProduct(vidInstallationVideo);
         }
-        else if(type == "vid-pro") {
+        else if (type == "vid-pro") {
             setGalleryProduct(vidProInstallationVideo);
         }
-        else if(type == "clearer-view"){
+        else if (type == "clearer-view") {
             setGalleryProduct(clearerViewInstallationVideo);
         }
     };
-
     return (
         <div className="min-h-screen bg-white">
             <Navbar scrollTo={scrollTo} />
@@ -85,7 +86,7 @@ export default function Home() {
                 <Hero />
                 <ClearView
                     onOpenGallery={setGalleryProduct}
-                    onInstallationVideos={()=>openInstallationVideo("clearer-view")}
+                    onInstallationVideos={() => openInstallationVideo("clearer-view")}
                 />
 
                 <ProductSection
@@ -106,7 +107,7 @@ export default function Home() {
                     imageLeft={true}
                     galleryButtonText="Gallery"
                     onScheduleDemo={() => scrollTo('demo')}
-                    onInstallationVideos={()=>openInstallationVideo("vid")}
+                    onInstallationVideos={() => openInstallationVideo("vid")}
                 />
 
                 <ProductSection

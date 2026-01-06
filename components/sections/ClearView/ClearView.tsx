@@ -79,7 +79,7 @@ const ClearView: React.FC<ClearViewProps> = ({ onOpenGallery, onInstallationVide
 
                 {/* Image Side */}
                 <div className="relative">
-                    <div className="bg-gray-100 rounded-3xl group cursor-pointer overflow-hidden aspect-square border border-gray-100">
+                    <div  onClick={() => onOpenGallery({ name: 'ClearView', gallery })} className="bg-gray-100 rounded-3xl group cursor-pointer overflow-hidden aspect-square border border-gray-100">
                         <Image
                             src="/assets/clear_view.jpg"
                             alt="Ophthall ClearView Slit Lamp System"
