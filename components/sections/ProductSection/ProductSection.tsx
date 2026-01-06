@@ -94,7 +94,7 @@ const ProductSection: React.FC<ProductSectionProps> = ({
                 </div>
 
                 <div className={layoutImageLeft ? 'lg:order-1' : ''}>
-                    <div className={`relative group cursor-pointer overflow-hidden rounded-3xl bg-gray-100 w-full ${isPro ? 'aspect-[4/3] max-w-[600px] mx-auto' : 'aspect-square max-w-[500px] mx-auto'}`}>
+                    <div onClick={() => onOpenGallery({ name, gallery })} className={`relative group cursor-pointer overflow-hidden rounded-3xl bg-gray-100 w-full ${isPro ? 'aspect-[4/3] max-w-[600px] mx-auto' : 'aspect-square max-w-[500px] mx-auto'}`}>
                         <Image
                             src={imageSrc}
                             className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
