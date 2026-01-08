@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
                         onClick={scrollToDemo}
                         className="bg-ophthall-blue text-white px-12 py-5 font-bold rounded-sm flex items-center hover:bg-ophthall-orange transition-all shadow-2xl group"
                     >
-                        Book a Physical Demo{' '}
+                        Book a Demo{' '}
                         <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-2 transition-transform" />
                     </button>
                 </div>
@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
                     <div className="absolute inset-0 bg-blue-50 rounded-full blur-3xl -z-10 opacity-50"></div>
                     <div className="overflow-hidden rounded-3xl border-4 border-white bg-white">
                         <Image
-                            src="/assets/Imaging_system.png"
+                            src="/assets/Imaging_system_1.png"
                             className="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-105"
                             alt="Imaging System"
                             width={800}
