@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
                         onClick={scrollToDemo}
                         className="bg-ophthall-blue text-white px-12 py-5 font-bold rounded-sm flex items-center hover:bg-ophthall-orange transition-all shadow-2xl group"
                     >
-                        Book a Physical Demo{' '}
+                        Book a Demo{' '}
                         <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-2 transition-transform" />
                     </button>
                 </div>
