@@ -12,7 +12,7 @@ interface ClearViewProps {
 
 const ClearView: React.FC<ClearViewProps> = ({ onOpenGallery, onInstallationVideos }) => {
     const gallery = [
-        { src: '/assets/clear_view_1.png', type: 'image' } as const
+        { src: '/assets/clear_view_1.jpeg', type: 'image' } as const
         // Add more if available
     ];
 
@@ -81,7 +81,7 @@ const ClearView: React.FC<ClearViewProps> = ({ onOpenGallery, onInstallationVide
                 <div className="relative">
                     <div  onClick={() => onOpenGallery({ name: 'ClearView', gallery })} className="bg-gray-100 rounded-3xl group cursor-pointer overflow-hidden aspect-square border border-gray-100">
                         <Image
-                            src="/assets/clear_view_1.png"
+                            src="/assets/clear_view_1.jpeg"
                             alt="Ophthall ClearView Slit Lamp System"
                             width={800}
                             height={800}
