@@ -58,19 +58,13 @@ const DemoForm: React.FC = () => {
         await handleSubmit(onSubmit)(e);
     }
 
-    const handleGoogleSheetForm = async (formData: URLSearchParams, retries = 3, delay = 1500) => {
+    const handleGoogleSheetForm = async (formData: URLSearchParams) => {
         try {
             const res = await fetch("https://script.google.com/macros/s/AKfycby8nMFdnImR8Hxk1GaBJx90p66U7TaMWwq_FXQT_3PZ9nDUjdfATIXFhRw5yWtkQ7VULA/exec", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: formData.toString() })
             const data = await res.json();
             console.log(data);
         } catch (error) {
             console.log(error);
-            if (retries <= 1) {
-                console.error("Google Sheet failed permanently!");
-                setError("Something went wrong. Please try again.")
-            }
-            await new Promise((resolve) => setTimeout(resolve, delay));
-            return handleGoogleSheetForm(formData, retries - 1, delay)
         }
     }
     return (
