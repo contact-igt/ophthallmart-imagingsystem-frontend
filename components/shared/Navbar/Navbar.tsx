@@ -16,7 +16,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollTo }) => {
                         <Image className='w-[130px] h-auto sm:w-30 md:w-32 lg:w-40  xl:w-[150px] object-contain' src="/assets/OphthallMart_logo.PNG" width={170} height={170} alt="" />
                     </div>
                     <div className="hidden lg:flex space-x-8 text-[12px] font-black text-gray-800 uppercase tracking-widest">
-                        {['Home', 'Ophthall VID', 'Ophthall VID Pro', 'Accessories', 'Reviews'].map((link) => (
+                        {['Home', 'Clearview', 'Ophthall VID', 'Ophthall VID Pro', 'Accessories', 'Reviews'].map((link) => (
                             <button
                                 key={link}
                                 onClick={() => scrollTo(link.toLowerCase().replace(/\s+/g, '-'))}
@@ -51,7 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollTo }) => {
                 {/* Mobile Menu Dropdown */}
                 {isMenuOpen && (
                     <div className="absolute top-[80px] left-0 w-full bg-white shadow-2xl border-b border-gray-100 py-2 lg:hidden flex flex-col animate-in fade-in slide-in-from-top-5 duration-200">
-                        {['Home', 'Ophthall VID', 'Ophthall VID Pro', 'Accessories', 'Reviews'].map((link) => (
+                        {['Home', 'Clearview', 'Ophthall VID', 'Ophthall VID Pro', 'Accessories', 'Reviews'].map((link) => (
                             <button
                                 key={link}
                                 onClick={() => {
