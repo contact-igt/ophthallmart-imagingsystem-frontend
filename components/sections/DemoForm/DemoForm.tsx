@@ -67,6 +67,7 @@ const DemoForm: React.FC = () => {
             console.log(error);
         }
     }
+    
     return (
         <section id="demo" className="py-32 bg-ophthall-bg">
             <div className="max-w-[900px] mx-auto px-6">
