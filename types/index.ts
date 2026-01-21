@@ -19,6 +19,8 @@ export interface GalleryModalProps {
     isOpen: boolean;
     onClose: () => void;
     product: Product | null;
+    isGalleryImages?: boolean;
+    galleryImageData?: any;
 }
 
 export interface ProductSectionProps {

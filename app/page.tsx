@@ -19,12 +19,95 @@ import useUTMSource from '@/utils/useUTMSource';
 export default function Home() {
     useUTMSource();
     const [galleryProduct, setGalleryProduct] = useState<Product | null>(null);
-
+    const [isGalleryImages, setIsGalleryImages] = useState(false);
     const scrollTo = (id: string) => {
         const el = document.getElementById(id);
         if (el) el.scrollIntoView({ behavior: 'smooth' });
     };
 
+    const clearViewImages = {
+        data: [{
+            id: 1,
+            src: '/assets/clearviewImages/sliderImg1.jpeg',
+        },
+        {
+            id: 2,
+            src: '/assets/clearviewImages/sliderImg2.jpeg',
+        },
+        {
+            id: 3,
+            src: '/assets/clearviewImages/sliderImg19.jpg',
+        },
+        {
+            id: 4,
+            src: '/assets/clearviewImages/sliderImg4.jpg',
+        },
+        {
+            id: 5,
+            src: '/assets/clearviewImages/sliderImg5.jpg',
+        },
+        {
+            id: 6,
+            src: '/assets/clearviewImages/sliderImg6.jpg',
+        },
+        {
+            id: 7,
+            src: '/assets/clearviewImages/sliderImg7.jpg',
+        },
+        {
+            id: 8,
+            src: '/assets/clearviewImages/sliderImg8.jpeg',
+        },
+        {
+            id: 9,
+            src: '/assets/clearviewImages/sliderImg9.jpeg',
+        }, {
+            id: 10,
+            src: '/assets/clearviewImages/sliderImg10.jpg',
+        }],
+        data_2: [
+            {
+                id: 1,
+                src: '/assets/clearviewImages/sliderImg10.jpg',
+            },
+            {
+                id: 2,
+                src: '/assets/clearviewImages/sliderImg11.jpg',
+            },
+            {
+                id: 3,
+                src: '/assets/clearviewImages/sliderImg12.jpg',
+            },
+            {
+                id: 4,
+                src: '/assets/clearviewImages/sliderImg13.jpg',
+            },
+            {
+                id: 5,
+                src: '/assets/clearviewImages/sliderImg14.jpg',
+            },
+            {
+                id: 6,
+                src: '/assets/clearviewImages/sliderImg15.jpg',
+            },
+            {
+                id: 7,
+                src: '/assets/clearviewImages/sliderImg16.jpg',
+            },
+            {
+                id: 8,
+                src: '/assets/clearviewImages/sliderImg17.jpg',
+            },
+            {
+                id: 9,
+                src: '/assets/clearviewImages/sliderImg18.jpg',
+            },
+            {
+                id: 10,
+                src: '/assets/clearviewImages/sliderImg20.jpg',
+            }
+        ]
+    }
     const vidGallery: GalleryItem[] = [
         {
             src: '/assets/ophthall_vid.png',
@@ -67,7 +150,7 @@ export default function Home() {
         ]
     };
 
-    const openInstallationVideo = (type: string) => {
+    const openInstallationVideo = (type: string, isGalleryImageUI?: boolean) => {
         if (type == "vid") {
             setGalleryProduct(vidInstallationVideo);
         }
@@ -76,6 +159,7 @@ export default function Home() {
         }
         else if (type == "clearer-view") {
             setGalleryProduct(clearerViewInstallationVideo);
+            if (isGalleryImageUI) setIsGalleryImages(true);
         }
     };
     return (
@@ -87,6 +171,7 @@ export default function Home() {
                 <ClearView
                     onOpenGallery={setGalleryProduct}
                     onInstallationVideos={() => openInstallationVideo("clearer-view")}
+                    onOpenGalleryImages={() => openInstallationVideo("clearer-view", true)}
                 />
 
                 <ProductSection
@@ -145,8 +230,13 @@ export default function Home() {
 
             <GalleryModal
                 isOpen={!!galleryProduct}
-                onClose={() => setGalleryProduct(null)}
+                onClose={() => {
+                    setGalleryProduct(null);
+                    setIsGalleryImages(false);
+                }}
                 product={galleryProduct}
+                isGalleryImages={isGalleryImages}
+                galleryImageData={clearViewImages}
             />
         </div>
     );

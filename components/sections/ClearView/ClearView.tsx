@@ -8,9 +8,10 @@ import type { Product } from '@/types';
 interface ClearViewProps {
     onOpenGallery: (product: Product) => void;
     onInstallationVideos?: () => void;
+    onOpenGalleryImages?: () => void;
 }
 
-const ClearView: React.FC<ClearViewProps> = ({ onOpenGallery, onInstallationVideos }) => {
+const ClearView: React.FC<ClearViewProps> = ({ onOpenGallery, onInstallationVideos, onOpenGalleryImages }) => {
     const gallery = [
         { src: '/assets/clear_view_1.jpeg', type: 'image' } as const
         // Add more if available
@@ -69,7 +70,7 @@ const ClearView: React.FC<ClearViewProps> = ({ onOpenGallery, onInstallationVide
                             <PlayCircle className="w-4 h-4" /> Installation Videos
                         </button>
                         <button
-                            onClick={() => onOpenGallery({ name: 'ClearView', gallery })}
+                            onClick={onOpenGalleryImages}
                             className="flex items-center gap-3 px-10 py-4 font-black uppercase text-[11px] tracking-widest rounded transition-all border-2 border-ophthall-blue text-ophthall-blue hover:bg-ophthall-blue hover:text-white"
                         >
                             <Camera className="w-5 h-5" /> Gallery
@@ -79,7 +80,7 @@ const ClearView: React.FC<ClearViewProps> = ({ onOpenGallery, onInstallationVide
 
                 {/* Image Side */}
                 <div className="relative">
-                    <div  onClick={() => onOpenGallery({ name: 'ClearView', gallery })} className="bg-gray-100 rounded-3xl group cursor-pointer overflow-hidden aspect-square border border-gray-100">
+                    <div onClick={() => onOpenGallery({ name: 'ClearView', gallery })} className="bg-gray-100 rounded-3xl group cursor-pointer overflow-hidden aspect-square border border-gray-100">
                         <Image
                             src="/assets/clear_view_1.jpeg"
                             alt="Ophthall ClearView Slit Lamp System"
