@@ -9,6 +9,7 @@ import * as Yup from 'yup';
 interface Video {
     id: string;
     url: string;
+    link: string;
     title: string;
 }
 
@@ -29,21 +30,25 @@ const SurgeryVideos: React.FC = () => {
         {
             id: '1',
             url: 'https://www.youtube.com/embed/sEM7akfqSxs?si=7n5BwgBfAbEHr8S0',
+            link: 'https://youtu.be/sEM7akfqSxs?si=cclog6eQcgWi-DOR',
             title: 'Cataract Surgery Steps Recorded'
         },
         {
             id: '2',
             url: 'https://www.youtube.com/embed/cA4MZyq6Ca4?si=Jm8OGMu0t1bvk2GQ',
+            link: 'https://www.youtube.com/watch?v=cA4MZyq6Ca4',
             title: 'Cataract Surgery Steps Recorded'
         },
         {
             id: '3',
             url: 'https://www.youtube.com/embed/u__aJe2Nkow?si=gXsze4linGq1yJ4w',
+            link: 'https://www.youtube.com/watch?v=u__aJe2Nkow',
             title: 'Perfect Red Glow With Ophthall Microscope'
         },
         {
             id: '4',
             url: 'https://www.youtube.com/embed/f4Svjjk62-M?si=ExNGW4l_vni5jUJI',
+            link: 'https://youtu.be/f4Svjjk62-M?si=9EineinzH3xlZhO8',
             title: 'Two hand co-axial phacoemulsification for deep socket'
         },
         // {
@@ -59,11 +64,13 @@ const SurgeryVideos: React.FC = () => {
         {
             id: '8',
             url: 'https://www.youtube.com/embed/DwrMgsrO8Ts?si=d9UOf0o8eXoPcEVU',
+            link: 'https://youtu.be/DwrMgsrO8Ts?si=YrZvHJ25CSV3U7E0',
             title: 'soft cataract - prolapse & aspirate'
         },
         {
             id: '9',
             url: 'https://www.youtube.com/embed/1VE13qzwz2k?si=M9sj7MctaUnQKyaX',
+            link: 'https://youtu.be/1VE13qzwz2k?si=oBWXqNA-KIAvwOdI0',
             title: 'IFIS surprise - soft cataract : Topical phaco'
         },
         // {
@@ -84,26 +91,31 @@ const SurgeryVideos: React.FC = () => {
         {
             id: '13',
             url: 'https://www.youtube.com/embed/KllIPSUCoow?si=yATTRXmrkXRDrzcw',
+            link: 'https://youtu.be/KllIPSUCoow?si=_quU20Rw43AYch3o',
             title: '+4D IOL - Topical phaco in High Myope'
         },
         {
             id: '14',
             url: 'https://www.youtube.com/embed/fvK6DRIgPZc?si=JJ7v6I-G3qiL33uw',
+            link: 'https://youtu.be/fvK6DRIgPZc?si=jepr0abpdV_FyIri',
             title: 'Sentinel bubble - Topical phaco | Int mat cataract | uncooperative patient'
         },
         {
             id: '15',
             url: 'https://www.youtube.com/embed/kAp5324W0EI?si=L59F-dtWhEHkxGrj',
+            link: 'https://youtu.be/kAp5324W0EI?si=xFxPkQywAq7eeyhX',
             title: 'Cataract Surgery With the New Ophthall Microscope'
         },
         {
             id: '16',
             url: 'https://www.youtube.com/embed/QoPuQI1TOWU?si=bOAO5Edf4V-XZbJd',
+            link: 'https://youtu.be/QoPuQI1TOWU?si=j80kD008MQYBvaOh',
             title: 'ICL SURGERY WITH THE OPHTHALL PRO MICROSCOPE'
         },
         {
             id: '17',
             url: 'https://www.youtube.com/embed/s8bbWNPZtrM?si=kxukgu4RiN_Kvd8z',
+            link: 'https://youtu.be/s8bbWNPZtrM?si=3Co6WUOOpQGEckFa',
             title: 'Cataract Surgery Recorded'
         },
         // {
@@ -115,10 +127,14 @@ const SurgeryVideos: React.FC = () => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showDemoModal, setShowDemoModal] = useState(false);
-    const [hasShownModal, setHasShownModal] = useState(false);
+    // const [hasShownModal, setHasShownModal] = useState(false);
+    const POPUP_INTERVAL = 5;
+    const MAX_POPUPS = 2;
     const playerRef = useRef<any>(null);
     const playbackTimerRef = useRef<any>(null);
     const playbackTimeRef = useRef(0);
+    const lastPopupAtRef = useRef(0);
+    const popupCountRef = useRef(0);
 
     const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<FormData>({
         resolver: yupResolver(formSchema),
@@ -143,16 +159,18 @@ const SurgeryVideos: React.FC = () => {
         };
     }, []);
 
-    // Reinitialize player when video changes
     useEffect(() => {
         if ((window as any).YT && (window as any).YT.Player) {
             initializePlayer();
         }
 
-        // Reset playback time when video changes
         playbackTimeRef.current = 0;
+        lastPopupAtRef.current = 0;
+        popupCountRef.current = 0;
+
         if (playbackTimerRef.current) {
             clearInterval(playbackTimerRef.current);
+            playbackTimerRef.current = null;
         }
     }, [currentIndex]);
 
@@ -169,18 +187,32 @@ const SurgeryVideos: React.FC = () => {
     };
 
     const onPlayerStateChange = (event: any) => {
-        if (event.data === (window as any).YT.PlayerState.PLAYING && !hasShownModal) {
+        if (event.data === (window as any).YT.PlayerState.PLAYING) {
             // Start tracking playback time
-            if (!playbackTimerRef.current) {
+            if (!playbackTimerRef.current && popupCountRef.current < MAX_POPUPS) {
                 playbackTimerRef.current = setInterval(() => {
                     playbackTimeRef.current += 1;
 
-                    if (playbackTimeRef.current >= 15) {
+                    const timeSinceLastPopup = playbackTimeRef.current - lastPopupAtRef.current;
+                    if (timeSinceLastPopup >= POPUP_INTERVAL && popupCountRef.current < MAX_POPUPS) {
+                        popupCountRef.current += 1;
+                        lastPopupAtRef.current = playbackTimeRef.current;
+                        if (playerRef.current && playerRef.current.pauseVideo) {
+                            console.log("playerRef", playerRef)
+                            playerRef.current.pauseVideo()
+                        }
                         setShowDemoModal(true);
-                        setHasShownModal(true);
+                    }
+                    if (popupCountRef.current >= MAX_POPUPS) {
                         clearInterval(playbackTimerRef.current);
                         playbackTimerRef.current = null;
                     }
+                    // if (playbackTimeRef.current >= 5) {
+                    //     setShowDemoModal(true);
+                    //     setHasShownModal(true);
+                    //     clearInterval(playbackTimerRef.current);
+                    //     playbackTimerRef.current = null;
+                    // }
                 }, 1000);
             }
         }
@@ -196,7 +228,8 @@ const SurgeryVideos: React.FC = () => {
 
     const handleCloseModal = () => {
         setShowDemoModal(false);
-        setHasShownModal(true);
+        playerRef.current.playVideo()
+        // setHasShownModal(true);
     };
 
     const goToPrevious = () => {
@@ -271,21 +304,20 @@ const SurgeryVideos: React.FC = () => {
                     Real-World Results
                 </h2>
                 <h3 className="text-4xl md:text-5xl font-light text-ophthall-blue tracking-tighter mb-12">
-                    Surgeries Performed Using <span className="font-bold">OIS.</span>
+                    Ophthalmic Surgical <span className="font-bold"> Education</span>
                 </h3>
                 <p className="text-lg text-gray-500 font-light mb-16">
-                    Witness the clinical and surgical clarity recorded directly through our imaging systems.
+                    Library of surgical videos by expert surgeons recorded directly using Ophthall imaging system
                 </p>
-
                 {/* Carousel Container */}
                 <div className="relative">
                     {/* Enhanced Video Counter Badge - Outside container, top-right corner */}
-                    <div className="absolute top-[-38px] left-[-15px] z-20 bg-gradient-to-r from-ophthall-orange to-orange-600 text-white px-6 py-3 rounded-full font-black text-base shadow-2xl border-2 border-white/30 backdrop-blur-sm animate-fade-in transform translate-x-2 -translate-y-2">
+                    <div className="absolute top-[-35px] md:top-[-48px] left-1/2 -translate-x-1/2 z-20 bg-gradient-to-r from-ophthall-orange to-orange-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-black text-base shadow-2xl border-2 border-white/30 backdrop-blur-sm animate-fade-in">
                         <div className="flex items-center gap-2">
                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
                             </svg>
-                            <span className="tracking-wide">Video {currentIndex + 1} of {videos.length}</span>
+                            <span className="text-sm sm:text-md md:text-lg">Video {currentIndex + 1} of {videos.length}</span>
                         </div>
                     </div>
 
@@ -334,9 +366,14 @@ const SurgeryVideos: React.FC = () => {
                 </div>
 
                 <div className="mt-12 flex justify-center gap-6">
-                    <button className="flex items-center gap-3 text-[11px] font-black uppercase tracking-widest text-ophthall-blue hover:text-ophthall-orange transition-colors">
-                        <Youtube className="w-5 h-5 text-red-600" /> View Full OT Channel
-                    </button>
+                    <a
+                        href="https://www.youtube.com/@senthil.ophthall"
+                        target='_blank'
+                        className="flex items-center gap-3 px-8 py-4 bg-red-600 hover:bg-red-700 text-white text-sm font-black uppercase tracking-widest rounded-full shadow-lg transition-all hover:scale-105"
+                    >
+                        <Youtube className="w-6 h-6" /> Subscribe to Our Channel
+                    </a>
+
                 </div>
             </div>
 
@@ -363,7 +400,7 @@ const SurgeryVideos: React.FC = () => {
                         <div className="p-12">
                             <div className="text-center mb-12">
                                 <h2 className="text-ophthall-orange font-black uppercase tracking-[0.3em] text-[11px] mb-6">
-                                    Schedule Demo
+                                    Connect to Us
                                 </h2>
                                 <h3 className="text-4xl md:text-5xl font-light text-ophthall-blue tracking-tighter">
                                     Experience <span className="font-bold text-ophthall-orange">OIS Fidelity.</span>
@@ -417,10 +454,16 @@ const SurgeryVideos: React.FC = () => {
                                 </div>
                                 <div>
                                     <select {...register("interested_in")} className="w-full p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-2 focus:ring-ophthall-orange transition-all">
-                                        <option>Interested in VID</option>
-                                        <option>Interested in VID Pro</option>
-                                        <option>Interested in Slit Lamp</option>
+                                        <option>Interested in VID ( Anterior)
+                                        </option>
+                                        <option>Interested in VID Pro ( Posterior)
+                                        </option>
+                                        <option>Interested in Slit Lamp Imaging </option>
                                         <option>Interested in Accessories</option>
+                                        <option>Subscribe To Our Channel
+                                        </option>
+                                        <option>Submit Videos to Channel
+                                        </option>
                                     </select>
                                     {errors.interested_in && (
                                         <p className="text-red-500 text-sm font-bold mt-2">{errors.interested_in.message}</p>
@@ -430,7 +473,7 @@ const SurgeryVideos: React.FC = () => {
                                     <input
                                         {...register("microscope_model")}
                                         type="text"
-                                        placeholder="Microscope Model"
+                                        placeholder="Fill Details"
                                         className="w-full p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-2 focus:ring-ophthall-orange transition-all"
                                     />
                                     {errors.microscope_model && (
@@ -442,7 +485,7 @@ const SurgeryVideos: React.FC = () => {
                                     disabled={isSubmitting}
                                     className="md:col-span-2 bg-ophthall-blue text-white py-5 font-black uppercase tracking-widest rounded-lg shadow-xl hover:bg-ophthall-orange transition-all disabled:opacity-50"
                                 >
-                                    {isSubmitting ? "Submitting..." : "Schedule My Demo"}
+                                    {isSubmitting ? "Submitting..." : "Submit"}
                                 </button>
                             </form>
                         </div>

@@ -4,7 +4,6 @@ import Slider from "react-slick"
 
 
 export const GalleryImages = ({ Images }: any) => {
-  console.log(Images, "Images")
   const settings = {
     dots: false,
     infinite: true,

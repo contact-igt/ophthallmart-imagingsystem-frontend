@@ -67,13 +67,13 @@ const DemoForm: React.FC = () => {
             console.log(error);
         }
     }
-    
+
     return (
         <section id="demo" className="py-32 bg-ophthall-bg">
             <div className="max-w-[900px] mx-auto px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-ophthall-orange font-black uppercase tracking-[0.3em] text-[11px] mb-6">
-                        Schedule Demo
+                        Connect to Us
                     </h2>
                     <h3 className="text-5xl font-light text-ophthall-blue tracking-tighter">
                         Experience <span className="font-bold text-ophthall-orange">OIS Fidelity.</span>
@@ -127,10 +127,16 @@ const DemoForm: React.FC = () => {
                         </div>
                         <div>
                             <select {...register("interested_in")} className="p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-2 focus:ring-ophthall-orange transition-all">
-                                <option>Interested in VID</option>
-                                <option>Interested in VID Pro</option>
-                                <option>Interested in Slit Lamp</option>
+                                <option>Interested in VID ( Anterior)
+                                </option>
+                                <option>Interested in VID Pro ( Posterior)
+                                </option>
+                                <option>Interested in Slit Lamp Imaging</option>
                                 <option>Interested in Accessories</option>
+                                <option>Subscribe To Our Channel
+                                </option>
+                                <option>Submit Videos to Channel
+                                </option>
                             </select>
                             {errors.interested_in && (
                                 <p className="text-red-500 text-sm font-bold mt-2">{errors.interested_in.message}</p>
@@ -140,7 +146,7 @@ const DemoForm: React.FC = () => {
                             <input
                                 {...register("microscope_model")}
                                 type="text"
-                                placeholder="Microscope Model"
+                                placeholder="Fill Details"
                                 className="p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-2 focus:ring-ophthall-orange transition-all"
                             />
                             {errors.microscope_model && (
@@ -157,7 +163,7 @@ const DemoForm: React.FC = () => {
                             disabled={isSubmitting}
                             className="md:col-span-2 bg-ophthall-blue text-white py-5 font-black uppercase tracking-widest rounded-lg shadow-xl hover:bg-ophthall-orange transition-all"
                         >
-                            {isSubmitting ? "Submitting..." : "Schedule My Demo"}
+                            {isSubmitting ? "Submitting..." : "Submit"}
                         </button>
                     </form>
                 </div>

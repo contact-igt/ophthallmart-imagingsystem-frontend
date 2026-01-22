@@ -22,7 +22,6 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ isOpen, onClose, product, i
     }, [isOpen, product]);
 
     const items = product?.gallery || [];
-    console.log("items", items)
     const handleNext = useCallback((e?: React.MouseEvent) => {
         e?.stopPropagation();
         setCurrent((prev) => (prev === items.length - 1 ? 0 : prev + 1));
