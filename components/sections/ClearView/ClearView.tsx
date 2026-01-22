@@ -4,6 +4,7 @@ import React from 'react';
 import { CheckCircle2, PlayCircle, Camera, Check, Maximize2, Calendar } from 'lucide-react';
 import Image from 'next/image';
 import type { Product } from '@/types';
+import { ClearViewGallery } from './ClearViewGallery';
 
 interface ClearViewProps {
     onOpenGallery: (product: Product) => void;
@@ -69,12 +70,12 @@ const ClearView: React.FC<ClearViewProps> = ({ onOpenGallery, onInstallationVide
                         >
                             <PlayCircle className="w-4 h-4" /> Installation Videos
                         </button>
-                        <button
+                        {/* <button
                             onClick={onOpenGalleryImages}
                             className="flex items-center gap-3 px-10 py-4 font-black uppercase text-[11px] tracking-widest rounded transition-all border-2 border-ophthall-blue text-ophthall-blue hover:bg-ophthall-blue hover:text-white"
                         >
                             <Camera className="w-5 h-5" /> Gallery
-                        </button>
+                        </button> */}
                     </div>
                 </div>
 
@@ -96,6 +97,9 @@ const ClearView: React.FC<ClearViewProps> = ({ onOpenGallery, onInstallationVide
                     </div>
                 </div>
             </div>
+            {/* <div className='max-w-[1440px] mx-auto pt-10 px-6 lg:px-12'>
+            <ClearViewGallery />
+            </div> */}
         </section>
     );
 };
