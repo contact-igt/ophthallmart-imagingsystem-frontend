@@ -123,6 +123,66 @@ const SurgeryVideos: React.FC = () => {
         //     url: 'https://www.youtube.com/embed/znpSqBBNjTY?si=S9TLeEmj5tan01CL',
         //     title: 'The most precise surgery in the world Retinal macular hole surgery '
         // },
+        {
+            id: '19',
+            url: 'https://www.youtube.com/embed/WX9rYpguiv0?si=q3AuBqiEBKwxk3S4',
+            link: 'https://www.youtube.com/watch?v=WX9rYpguiv0',
+            title: 'CataTeach Jan 2026 - Claw your way to the finish line'
+        },
+        {
+            id: '20',
+            url: 'https://www.youtube.com/embed/Z_NKnO_DtvE?si=Oec0IEreTwQGwa5j',
+            link: 'https://www.youtube.com/watch?v=Z_NKnO_DtvE',
+            title: 'IOL gets stuck in the injector'
+        },
+        // {
+        //     id: '21',
+        //     url: 'https://www.youtube.com/embed/LwekhlCupco?si=pLmJWVc9Ct-QOgdG',
+        //     link: 'https://www.youtube.com/watch?v=LwekhlCupco',
+        //     title: 'Superior sitting temporal incision'
+        // },
+        //         {
+        //     id: '22',
+        //     url: 'https://www.youtube.com/embed/7wvLjt-6yeM?si=tRss5lemwdW7oxrP',
+        //     link: 'https://www.youtube.com/watch?v=7wvLjt-6yeM',
+        //     title: 'My Most Efficient White Cataract Phaco'
+        // },
+        // {
+        //     id: '23',
+        //     url: 'https://www.youtube.com/embed/nFBBQuWGsLU?si=lsyPpCAijmsbDrxW',
+        //     link: 'https://www.youtube.com/watch?v=nFBBQuWGsLU',
+        //     title: 'Unedited Phaco on Alcon Legion'
+        // },
+        {
+            id: '24',
+            url: 'https://www.youtube.com/embed/mkIKnXBovvg?si=Rk7BKaigHUcW4BxE',
+            link: 'https://www.youtube.com/watch?v=mkIKnXBovvg',
+            title: 'Unedited Topical Phaco'
+        },
+        {
+            id: '25',
+            url: 'https://www.youtube.com/embed/goeg2ISzlVo?si=sWW5rdNDvoP4tjui',
+            link: 'https://www.youtube.com/watch?v=goeg2ISzlVo',
+            title: 'Complicated Cataract Phaco Surgery'
+        },
+        // {
+        //     id: '26',
+        //     url: 'https://www.youtube.com/embed/VB462G7DyxM?si=sZ2wN71dxJZ9jHeB',
+        //     link: 'https://www.youtube.com/watch?v=VB462G7DyxM',
+        //     title: 'White Cataract Phaco'
+        // },
+           {
+            id: '27',
+            url: 'https://www.youtube.com/embed/7ITIoj_XFBg?si=XuZ0TomSl7aS4Bca',
+            link: 'https://www.youtube.com/watch?v=7ITIoj_XFBg',
+            title: 'Refractive Lens Exchange'
+        },
+        //  {
+        //     id: '28',
+        //     url: 'https://www.youtube.com/embed/pZPn9kYfSy4?si=_qG5QQWhicuWyXYO',
+        //     link: 'https://www.youtube.com/watch?v=pZPn9kYfSy4',
+        //     title: 'White Cataract with Coloboma'
+        // },
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
