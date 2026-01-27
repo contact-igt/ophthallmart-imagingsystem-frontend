@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '@/components/shared/Navbar/Navbar';
 import GalleryModal from '@/components/shared/GalleryModal/GalleryModal';
 import Footer from '@/components/shared/Footer/Footer';
@@ -16,9 +16,12 @@ import DemoForm from '@/components/sections/DemoForm/DemoForm';
 import type { Product, GalleryItem } from '@/types';
 import useUTMSource from '@/utils/useUTMSource';
 import { ClearViewGallery } from '@/components/sections/ClearView/ClearViewGallery';
+import { Popup } from '@/components/shared/Popup/Popup';
+import { SurgeryVideoDetails } from '@/components/shared/SurgeryVideoDetails/surgeryVideoDetails';
 
 export default function Home() {
     useUTMSource();
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [galleryProduct, setGalleryProduct] = useState<Product | null>(null);
     // const [isGalleryImages, setIsGalleryImages] = useState(false);
     const scrollTo = (id: string) => {
@@ -80,6 +83,16 @@ export default function Home() {
             // if (isGalleryImageUI) setIsGalleryImages(true);
         }
     };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    }
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsModalOpen(true);
+        }, 5000);
+    }, [])
     return (
         <div className="min-h-screen bg-white">
             <Navbar scrollTo={scrollTo} />
@@ -153,9 +166,12 @@ export default function Home() {
                     // setIsGalleryImages(false);
                 }}
                 product={galleryProduct}
-                // isGalleryImages={isGalleryImages}
-                // galleryImageData={clearViewImages}
+            // isGalleryImages={isGalleryImages}
+            // galleryImageData={clearViewImages}
             />
+            <Popup isOpen={isModalOpen} onClose={handleCloseModal}>
+                <SurgeryVideoDetails onClose={handleCloseModal} />
+            </Popup>
         </div>
     );
 }
