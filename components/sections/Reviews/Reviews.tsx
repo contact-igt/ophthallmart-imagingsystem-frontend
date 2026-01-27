@@ -24,7 +24,7 @@ const Reviews: React.FC = () => {
                 <h3 className="text-4xl font-light mb-16 tracking-tighter">
                     Doctor <span className="font-bold text-ophthall-orange">Endorsements</span>
                 </h3>
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {reviews.map((r, i) => (
                         <div
                             key={i}
@@ -37,7 +37,7 @@ const Reviews: React.FC = () => {
                             </div>
                             <p className="text-lg italic font-light mb-8 leading-relaxed">&quot;{r.txt}&quot;</p>
                             <div className="flex items-center gap-4">
-                                <div className="w-10 h-10 rounded-full bg-white/10"><Image width={50} height={50} src={"/assets/doctor.jpg"} alt="" className='rounded-full w-full object-cover h-full'/></div>
+                                {/* <div className="w-10 h-10 rounded-full bg-white/10"><Image width={50} height={50} src={"/assets/doctor.jpg"} alt="" className='rounded-full w-full object-cover h-full'/></div> */}
                                 <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">
                                     {r.name}
                                 </span>

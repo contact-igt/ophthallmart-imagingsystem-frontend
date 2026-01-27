@@ -18,6 +18,7 @@ import useUTMSource from '@/utils/useUTMSource';
 import { ClearViewGallery } from '@/components/sections/ClearView/ClearViewGallery';
 import { Popup } from '@/components/shared/Popup/Popup';
 import { SurgeryVideoDetails } from '@/components/shared/SurgeryVideoDetails/surgeryVideoDetails';
+import { ScrollToTop } from '@/components/shared/ScrollToTop/ScrollToTop';
 
 export default function Home() {
     useUTMSource();
@@ -91,7 +92,7 @@ export default function Home() {
     useEffect(() => {
         setTimeout(() => {
             setIsModalOpen(true);
-        }, 5000);
+        }, 15000);
     }, [])
     return (
         <div className="min-h-screen bg-white">
@@ -172,6 +173,7 @@ export default function Home() {
             <Popup isOpen={isModalOpen} onClose={handleCloseModal}>
                 <SurgeryVideoDetails onClose={handleCloseModal} />
             </Popup>
+            <ScrollToTop />
         </div>
     );
-}
+};
