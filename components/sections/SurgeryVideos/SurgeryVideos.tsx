@@ -21,7 +21,7 @@ const formSchema = Yup.object({
         .required("Mobile required")
         .matches(/^[0-9]{10}$/, "Invalid mobile number"),
     interested_in: Yup.string().required("Interested in required"),
-    microscope_model: Yup.string().required("Microscope model required"),
+    fill_details: Yup.string().required("Fill details required"),
 });
 type FormData = Yup.InferType<typeof formSchema>;
 
@@ -319,7 +319,7 @@ const SurgeryVideos: React.FC = () => {
                 city: data?.city,
                 mobile: data?.mobile,
                 interested_in: data?.interested_in,
-                microscope_model: data?.microscope_model,
+                fill_details: data?.fill_details,
                 ip_address: ipData?.ip,
                 utm_source: localStorage.getItem("utm_source") || ""
             };
@@ -450,7 +450,7 @@ const SurgeryVideos: React.FC = () => {
                         {/* Close Button */}
                         <button
                             onClick={handleCloseModal}
-                            className="absolute top-4 right-4 text-gray-400 hover:text-ophthall-orange transition-colors p-2"
+                            className="absolute md:top-4 md:right-4 top-12 right-7 text-gray-400 hover:text-ophthall-orange transition-colors p-2"
                             aria-label="Close modal"
                         >
                             <X className="w-8 h-8" />
@@ -473,7 +473,7 @@ const SurgeryVideos: React.FC = () => {
                                         {...register("name")}
                                         type="text"
                                         placeholder="Full Name"
-                                        className="w-full p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-2 focus:ring-ophthall-orange transition-all"
+                                        className={`w-full p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-ophthall-orange transition-all ${errors.name ? "ring-2 ring-red-500" : "focus:ring-ophthall-orange"}`}
                                     />
                                     {errors.name && (
                                         <p className="text-red-500 text-sm font-bold mt-2">{errors.name.message}</p>
@@ -484,7 +484,7 @@ const SurgeryVideos: React.FC = () => {
                                         {...register("clinic")}
                                         type="text"
                                         placeholder="Clinic / hospital"
-                                        className="w-full p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-2 focus:ring-ophthall-orange transition-all"
+                                        className={`w-full p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-ophthall-orange transition-all ${errors.clinic ? "ring-2 ring-red-500" : "focus:ring-ophthall-orange"}`}
                                     />
                                     {errors.clinic && (
                                         <p className="text-red-500 text-sm font-bold mt-2">{errors.clinic.message}</p>
@@ -495,7 +495,7 @@ const SurgeryVideos: React.FC = () => {
                                         {...register("city")}
                                         type="text"
                                         placeholder="City"
-                                        className="w-full p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-2 focus:ring-ophthall-orange transition-all"
+                                        className={`w-full p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-ophthall-orange transition-all ${errors.city ? "ring-2 ring-red-500" : "focus:ring-ophthall-orange"}`}
                                     />
                                     {errors.city && (
                                         <p className="text-red-500 text-sm font-bold mt-2">{errors.city.message}</p>
@@ -506,14 +506,14 @@ const SurgeryVideos: React.FC = () => {
                                         {...register("mobile")}
                                         type="tel"
                                         placeholder="Mobile Number"
-                                        className="w-full p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-2 focus:ring-ophthall-orange transition-all"
+                                        className={`w-full p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-ophthall-orange transition-all ${errors.mobile ? "ring-2 ring-red-500" : "focus:ring-ophthall-orange"}`}
                                     />
                                     {errors.mobile && (
                                         <p className="text-red-500 text-sm font-bold mt-2">{errors.mobile.message}</p>
                                     )}
                                 </div>
                                 <div>
-                                    <select {...register("interested_in")} className="w-full p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-2 focus:ring-ophthall-orange transition-all">
+                                    <select {...register("interested_in")} className={`w-full p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-ophthall-orange transition-all ${errors.interested_in ? "ring-2 ring-red-500" : "focus:ring-ophthall-orange"}`}>
                                         <option>Interested in VID ( Anterior)
                                         </option>
                                         <option>Interested in VID Pro ( Posterior)
@@ -531,13 +531,13 @@ const SurgeryVideos: React.FC = () => {
                                 </div>
                                 <div>
                                     <input
-                                        {...register("microscope_model")}
+                                        {...register("fill_details")}
                                         type="text"
                                         placeholder="Fill Details"
-                                        className="w-full p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-2 focus:ring-ophthall-orange transition-all"
+                                        className={`w-full p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-ophthall-orange transition-all ${errors.fill_details ? "ring-2 ring-red-500" : "focus:ring-ophthall-orange"}`}
                                     />
-                                    {errors.microscope_model && (
-                                        <p className="text-red-500 text-sm font-bold mt-2">{errors.microscope_model.message}</p>
+                                    {errors.fill_details && (
+                                        <p className="text-red-500 text-sm font-bold mt-2">{errors.fill_details.message}</p>
                                     )}
                                 </div>
                                 <button

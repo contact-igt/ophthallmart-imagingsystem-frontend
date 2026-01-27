@@ -47,7 +47,7 @@ const Accessories: React.FC = () => {
                         Optional <span className="font-bold text-ophthall-orange">Accessories.</span>
                     </h3>
                 </div>
-                <div className="grid md:grid-cols-3 gap-10">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {accessories.map((item, i) => (
                         <div    
                             key={i}

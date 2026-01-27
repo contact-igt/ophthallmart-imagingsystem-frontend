@@ -122,7 +122,7 @@ export const SurgeryVideoDetails: React.FC<SurgeryVideoDetailsProps> = ({ onClos
             <div className="text-center">
                 <button
                     onClick={scrollToSurgeryVideos}
-                    className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-ophthall-orange to-orange-600 hover:from-orange-600 hover:to-ophthall-orange text-white text-base font-black uppercase tracking-widest rounded-full shadow-2xl transition-all hover:scale-105 hover:shadow-ophthall-orange/50"
+                    className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-ophthall-orange to-orange-600 hover:from-orange-600 hover:to-ophthall-orange text-white text-sm md:text-base font-black uppercase tracking-widest rounded-full shadow-2xl transition-all hover:scale-105 hover:shadow-ophthall-orange/50"
                 >
                     <PlayCircle className="w-6 h-6 group-hover:animate-pulse" />
                     Explore Surgery Videos

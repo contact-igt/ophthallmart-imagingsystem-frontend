@@ -18,10 +18,10 @@ export const Popup: React.FC<any> = ({ isOpen=false, onClose, children }: any) =
             <div className="bg-white rounded-3xl shadow-2xl max-w-[900px] w-full max-h-[90vh] overflow-y-auto">
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 text-gray-400 hover:text-ophthall-orange transition-colors p-2"
+                    className="absolute top-12 right-6 md:top-4 md:right-4 text-gray-400 hover:text-ophthall-orange transition-colors p-2"
                     aria-label="Close modal"
                 >
-                    <X className="w-8 h-8" />
+                    <X className="w-6 h-6 md:w-8 md:h-8" />
                 </button>
                 {children}
             </div>
