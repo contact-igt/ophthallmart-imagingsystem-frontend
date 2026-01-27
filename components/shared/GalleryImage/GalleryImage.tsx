@@ -37,7 +37,6 @@ export const GalleryImages = ({ Images }: any) => {
 
   const settings2 = {
     dots: false,
-
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -63,10 +62,7 @@ export const GalleryImages = ({ Images }: any) => {
         initialSlide: 2
       }
     }
-
     ]
-
-
   };
 
   return (

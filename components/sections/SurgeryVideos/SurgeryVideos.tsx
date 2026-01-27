@@ -410,14 +410,14 @@ const SurgeryVideos: React.FC = () => {
                     </div>
 
                     {/* Dot Indicators */}
-                    <div className="flex justify-center gap-3 mt-8">
+                    <div className="flex justify-center gap-2 md:gap-3 mt-8">
                         {videos.map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => goToSlide(index)}
                                 className={`transition-all rounded-full ${index === currentIndex
-                                    ? 'w-12 h-3 bg-ophthall-orange'
-                                    : 'w-3 h-3 bg-gray-300 hover:bg-gray-400'
+                                    ? 'w-9 md:w-12 h-2 md:h-3 bg-ophthall-orange'
+                                    : 'w-2 h-2 md:w-3 md:h-3 bg-gray-300 hover:bg-gray-400'
                                     }`}
                                 aria-label={`Go to video ${index + 1}`}
                             />
