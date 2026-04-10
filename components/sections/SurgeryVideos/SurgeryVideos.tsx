@@ -51,138 +51,192 @@ const SurgeryVideos: React.FC = () => {
             link: 'https://youtu.be/f4Svjjk62-M?si=9EineinzH3xlZhO8',
             title: 'Two hand co-axial phacoemulsification for deep socket'
         },
-        // {
-        //     id: '6',
-        //     url: 'https://www.youtube.com/embed/OQWRhs5ErwA?si=67e8oA7zJkG7DemD',
-        //     title: 'Soft cataract- Topical phaco | Magnificent IOL (CARE Group) '
-        // },
-        // {
-        //     id: '7',
-        //     url: 'https://www.youtube.com/embed/OQWRhs5ErwA?si=67e8oA7zJkG7DemD',
-        //     title: 'Soft cataract- Topical phaco | Magnificent IOL (CARE Group)'
-        // }, 
         {
-            id: '8',
+            id: '5',
             url: 'https://www.youtube.com/embed/DwrMgsrO8Ts?si=d9UOf0o8eXoPcEVU',
             link: 'https://youtu.be/DwrMgsrO8Ts?si=YrZvHJ25CSV3U7E0',
             title: 'soft cataract - prolapse & aspirate'
         },
         {
-            id: '9',
+            id: '6',
             url: 'https://www.youtube.com/embed/1VE13qzwz2k?si=M9sj7MctaUnQKyaX',
             link: 'https://youtu.be/1VE13qzwz2k?si=oBWXqNA-KIAvwOdI0',
             title: 'IFIS surprise - soft cataract : Topical phaco'
         },
-        // {
-        //     id: '10',
-        //     url: 'https://www.youtube.com/embed/1VE13qzwz2k?si=M9sj7MctaUnQKyaX',
-        //     title: 'IFIS surprise - soft cataract : Topical phaco'
-        // },
-        // {
-        //     id: '11',
-        //     url: 'https://www.youtube.com/embed/q-q1jnajZjk?si=2gcxung5rI1802F-',
-        //     title: 'Cataract surgery after intravitreal injections (Topical phaco)'
-        // },
-        // {
-        //     id: '12',
-        //     url: 'https://www.youtube.com/embed/uPyVC9OUBvw?si=Bnsfy9tPRZBflY5m',
-        //     title: 'Small pupil | IFIS | Iris hooks - Topical phacoemulsification'
-        // },
         {
-            id: '13',
+            id: '7',
             url: 'https://www.youtube.com/embed/KllIPSUCoow?si=yATTRXmrkXRDrzcw',
             link: 'https://youtu.be/KllIPSUCoow?si=_quU20Rw43AYch3o',
             title: '+4D IOL - Topical phaco in High Myope'
         },
         {
-            id: '14',
+            id: '8',
             url: 'https://www.youtube.com/embed/fvK6DRIgPZc?si=JJ7v6I-G3qiL33uw',
             link: 'https://youtu.be/fvK6DRIgPZc?si=jepr0abpdV_FyIri',
             title: 'Sentinel bubble - Topical phaco | Int mat cataract | uncooperative patient'
         },
         {
-            id: '15',
+            id: '9',
             url: 'https://www.youtube.com/embed/kAp5324W0EI?si=L59F-dtWhEHkxGrj',
             link: 'https://youtu.be/kAp5324W0EI?si=xFxPkQywAq7eeyhX',
             title: 'Cataract Surgery With the New Ophthall Microscope'
         },
         {
-            id: '16',
+            id: '10',
             url: 'https://www.youtube.com/embed/QoPuQI1TOWU?si=bOAO5Edf4V-XZbJd',
             link: 'https://youtu.be/QoPuQI1TOWU?si=j80kD008MQYBvaOh',
             title: 'ICL SURGERY WITH THE OPHTHALL PRO MICROSCOPE'
         },
         {
-            id: '17',
+            id: '11',
             url: 'https://www.youtube.com/embed/s8bbWNPZtrM?si=kxukgu4RiN_Kvd8z',
             link: 'https://youtu.be/s8bbWNPZtrM?si=3Co6WUOOpQGEckFa',
             title: 'Cataract Surgery Recorded'
         },
-        // {
-        //     id: '18',
-        //     url: 'https://www.youtube.com/embed/znpSqBBNjTY?si=S9TLeEmj5tan01CL',
-        //     title: 'The most precise surgery in the world Retinal macular hole surgery '
-        // },
         {
-            id: '19',
+            id: '12',
             url: 'https://www.youtube.com/embed/WX9rYpguiv0?si=q3AuBqiEBKwxk3S4',
             link: 'https://www.youtube.com/watch?v=WX9rYpguiv0',
             title: 'CataTeach Jan 2026 - Claw your way to the finish line'
         },
         {
-            id: '20',
+            id: '13',
             url: 'https://www.youtube.com/embed/Z_NKnO_DtvE?si=Oec0IEreTwQGwa5j',
             link: 'https://www.youtube.com/watch?v=Z_NKnO_DtvE',
             title: 'IOL gets stuck in the injector'
         },
-        // {
-        //     id: '21',
-        //     url: 'https://www.youtube.com/embed/LwekhlCupco?si=pLmJWVc9Ct-QOgdG',
-        //     link: 'https://www.youtube.com/watch?v=LwekhlCupco',
-        //     title: 'Superior sitting temporal incision'
-        // },
-        //         {
-        //     id: '22',
-        //     url: 'https://www.youtube.com/embed/7wvLjt-6yeM?si=tRss5lemwdW7oxrP',
-        //     link: 'https://www.youtube.com/watch?v=7wvLjt-6yeM',
-        //     title: 'My Most Efficient White Cataract Phaco'
-        // },
-        // {
-        //     id: '23',
-        //     url: 'https://www.youtube.com/embed/nFBBQuWGsLU?si=lsyPpCAijmsbDrxW',
-        //     link: 'https://www.youtube.com/watch?v=nFBBQuWGsLU',
-        //     title: 'Unedited Phaco on Alcon Legion'
-        // },
         {
-            id: '24',
+            id: '14',
             url: 'https://www.youtube.com/embed/mkIKnXBovvg?si=Rk7BKaigHUcW4BxE',
             link: 'https://www.youtube.com/watch?v=mkIKnXBovvg',
             title: 'Unedited Topical Phaco'
         },
         {
-            id: '25',
+            id: '15',
             url: 'https://www.youtube.com/embed/goeg2ISzlVo?si=sWW5rdNDvoP4tjui',
             link: 'https://www.youtube.com/watch?v=goeg2ISzlVo',
             title: 'Complicated Cataract Phaco Surgery'
         },
-        // {
-        //     id: '26',
-        //     url: 'https://www.youtube.com/embed/VB462G7DyxM?si=sZ2wN71dxJZ9jHeB',
-        //     link: 'https://www.youtube.com/watch?v=VB462G7DyxM',
-        //     title: 'White Cataract Phaco'
-        // },
            {
-            id: '27',
+            id: '16',
             url: 'https://www.youtube.com/embed/7ITIoj_XFBg?si=XuZ0TomSl7aS4Bca',
             link: 'https://www.youtube.com/watch?v=7ITIoj_XFBg',
             title: 'Refractive Lens Exchange'
         },
-        //  {
-        //     id: '28',
-        //     url: 'https://www.youtube.com/embed/pZPn9kYfSy4?si=_qG5QQWhicuWyXYO',
-        //     link: 'https://www.youtube.com/watch?v=pZPn9kYfSy4',
-        //     title: 'White Cataract with Coloboma'
-        // },
+          {
+            id: '17',
+            url: 'https://www.youtube.com/embed/evxtQyFgFsc?si=eUq1wM1nc2Zp3CnS',
+            link: 'https://www.youtube.com/watch?v=evxtQyFgFsc&t=15s',
+            title: "Corneal opacity, soft cataract management by Stop & phaco. Topical phacoemulsification surgery."
+        },
+         {
+            id: '18',
+            url: 'https://www.youtube.com/embed/d0s-aMdI85s?si=U9ODr0pNFBhVda2E',
+            link: 'https://www.youtube.com/watch?v=d0s-aMdI85s',
+            title: " Hypermature senile cataract, Direct chop technique, topical phacoemulsification cataract surgery."
+        },
+        {
+            id: '19',
+            url: 'https://www.youtube.com/embed/JHtIveRnknc?si=n1Bc7vUxSIKxIPnP',
+            link: 'https://www.youtube.com/watch?v=JHtIveRnknc',
+            title: "Topical phacoemulsification cataract surgery, EDOF IOL, Stop and chop technique."
+        },
+         {
+            id: '20',
+            url: 'https://www.youtube.com/embed/VAIcf62dS0A?si=xVNcwJoYRb_t3qaf',
+            link: 'https://www.youtube.com/watch?v=VAIcf62dS0A',
+            title: "Posterior Polar Cataract- Pearls for managing successfully without complications."
+        },
+        {
+            id: '21',
+            url: 'https://www.youtube.com/embed/72SX0h2wP28?si=j9pD_9xM7jg42j9T',
+            link: 'https://www.youtube.com/watch?v=72SX0h2wP28',
+            title: "Routine Topical phacoemulsification cataract surgery."
+        },
+        {
+            id: '22',
+            url: 'https://www.youtube.com/embed/AUtsz43n6hQ?si=wvv7Zi03Fbc6Zk_k',
+            link: 'https://www.youtube.com/watch?v=AUtsz43n6hQ',
+            title: "Posterior subcapsular cataract, capsule polishing and advanced monofocal IOL."
+        },
+        {
+            id: '23',
+            url: 'https://www.youtube.com/embed/paU7RXmnA-4?si=pMA91NBvN7IW4dC_',
+            link: 'https://www.youtube.com/watch?v=paU7RXmnA-4',
+            title: "Multifocal IOL in an elderly anxious patient, topical phacoemulsification cataract surgery."
+        },
+        {
+            id: '24',
+            url: 'https://www.youtube.com/embed/_JV0dS-t054?si=oPI482AhDETqNQRf',
+            link: 'https://www.youtube.com/watch?v=_JV0dS-t054&t=2s',
+            title: "Posterior capsule polishing in Hypermature senile cataract, topical phacoemulsification."
+        },
+        {
+            id: '25',
+            url: 'https://www.youtube.com/embed/NBV3UGo6OOw?si=fh60o34zlsl6o49i',
+            link: 'https://www.youtube.com/watch?v=NBV3UGo6OOw',
+            title: "Rayner 800C Hydrophobic IOL, Topical phacoemulsification cataract surgery. No financial interest."
+        },
+        {
+            id: '26',
+            url: 'https://www.youtube.com/embed/pzuxB02B-8s?si=tqcJdS7e_J1AEnvM',
+            link: 'https://www.youtube.com/watch?v=pzuxB02B-8s',
+            title: "Capsulorhexis run out prevention, PEX, Multifocal IOL, 0.75D WTR astigmatism. Grade 4 cataract."
+        },
+        {
+            id: '27',
+            url: 'https://www.youtube.com/embed/pzuxB02B-8s?si=tqcJdS7e_J1AEnvM',
+            link: 'https://www.youtube.com/watch?v=pzuxB02B-8s',
+            title: "Capsulorhexis run out prevention, PEX, Multifocal IOL, 0.75D WTR astigmatism. Grade 4 cataract."
+        },
+        {
+            id: '28',
+            url: 'https://www.youtube.com/embed/v30JiVZFrFg?si=MaItKcKj4TPMt12Y',
+            link: 'https://www.youtube.com/watch?v=v30JiVZFrFg',
+            title: "The Golden Ring and soft cataracts."
+        },
+        {
+            id: '29',
+            url: 'https://www.youtube.com/embed/hSkSDJQlUsY?si=NpXJZH4n25QN4lBk',
+            link: 'https://www.youtube.com/watch?v=hSkSDJQlUsY',
+            title: "Subtenon's block for an elderly patient with HMSC, phacoemulsification cataract surgery."
+        },
+        {
+            id: '30',
+            url: 'https://www.youtube.com/embed/nyIYSYhTTKQ?si=8kcY4Ib4TMc1pr3G',
+            link: 'https://www.youtube.com/watch?v=nyIYSYhTTKQ',
+            title: "Topical phacoemulsification, grade 3 NS, dense PSC, direct chop and Hydroimplantation of IOL."
+        },
+        {
+            id: '31',
+            url: 'https://www.youtube.com/embed/nyIYSYhTTKQ?si=8kcY4Ib4TMc1pr3G',
+            link: 'https://www.youtube.com/watch?v=nyIYSYhTTKQ',
+            title: "Topical phacoemulsification, grade 3 NS, dense PSC, direct chop and Hydroimplantation of IOL."
+        },
+        {
+            id: '32',
+            url: 'https://www.youtube.com/embed/DgJGh4y9-6A?si=lApSxix-fJAbHec_',
+            link: 'https://www.youtube.com/watch?v=DgJGh4y9-6A',
+            title: "Topical phacoemulsification, direct chop and hydroimplantation of IOL."
+        },
+        {
+            id: '33',
+            url: 'https://www.youtube.com/embed/GWUq0MnrEho?si=4rj3s3xK_1KNTAk_',
+            link: 'https://www.youtube.com/watch?v=GWUq0MnrEho',
+            title: "DMD post cataract surgery, Managed by air tamponade. ASOCT confirmation."
+        },
+        {
+            id: '34',
+            url: 'https://www.youtube.com/embed/iWHl2-GUojA?si=vI1g-70wL8TzPUam',
+            link: 'https://www.youtube.com/watch?v=iWHl2-GUojA',
+            title: "Traumatic white cataract, trypanophobia, topical anaesthesia, IOL implant"
+        },
+        {
+            id: '35',
+            url: 'https://www.youtube.com/embed/wmvK-DsTFjg?si=vHYYjp2v48oVKI3F',
+            link: 'https://www.youtube.com/watch?v=wmvK-DsTFjg',
+            title: "Topical phacoemulsification cataract surgery demonstrating stop and chop technique."
+        },
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
