@@ -8,6 +8,28 @@ import { Menu, X } from 'lucide-react';
 const Navbar: React.FC<NavbarProps> = ({ scrollTo }) => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+    const slowScrollToVideoClub = () => {
+        const target = document.getElementById('video-club');
+        if (!target) return;
+        const start = window.scrollY;
+        const sectionBottom = target.offsetTop + target.offsetHeight;
+        const end = sectionBottom - window.innerHeight + 20;
+        const duration = 3500;
+        let startTime: number | null = null;
+
+        const ease = (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
+        const step = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            window.scrollTo(0, start + (end - start) * ease(progress));
+            if (progress < 1) requestAnimationFrame(step);
+        };
+
+        requestAnimationFrame(step);
+    };
+
     return (
         <nav className="bg-white border-b border-gray-100 sticky top-0 z-[100] h-20">
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12 h-full flex justify-between items-center relative">
@@ -25,9 +47,19 @@ const Navbar: React.FC<NavbarProps> = ({ scrollTo }) => {
                                 {link}
                             </button>
                         ))}
+                        <button
+                            onClick={slowScrollToVideoClub}
+                            className="flex items-center gap-1.5 text-red-600 hover:text-red-700 transition-colors"
+                        >
+                            <span className="relative flex h-2.5 w-2.5">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-600"></span>
+                            </span>
+                            Live Club
+                        </button>
                     </div>
                 </div>
-                <div className="flex items-center space-x-6">
+                <div className="flex items-center space-x-4">
                     <div className="hidden md:block text-right">
                         <p className="text-[10px] uppercase font-bold text-gray-400">OIS Helpline</p>
                         <p className="text-sm font-black text-ophthall-blue">+91 87545 17944</p>
@@ -37,6 +69,18 @@ const Navbar: React.FC<NavbarProps> = ({ scrollTo }) => {
                         className="bg-ophthall-blue text-white px-8 py-3 text-[11px] font-black uppercase tracking-widest rounded-sm hover:bg-ophthall-orange transition-all shadow-lg hidden sm:block"
                     >
                         Book a Demo
+                    </button>
+
+                    {/* Live Club — always visible on mobile */}
+                    <button
+                        onClick={() => { slowScrollToVideoClub(); setIsMenuOpen(false); }}
+                        className="lg:hidden flex items-center gap-1.5 bg-red-50 border border-red-200 text-red-600 px-3 py-2 rounded-full text-[11px] font-black uppercase tracking-widest"
+                    >
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+                        </span>
+                        Live Club
                     </button>
 
                     {/* Mobile Menu Button */}

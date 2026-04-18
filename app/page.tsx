@@ -11,6 +11,7 @@ import ComparisonTable from '@/components/sections/ComparisonTable/ComparisonTab
 import Accessories from '@/components/sections/Accessories/Accessories';
 import Reviews from '@/components/sections/Reviews/Reviews';
 import SurgeryVideos from '@/components/sections/SurgeryVideos/SurgeryVideos';
+import ProgrammeSection from '@/components/sections/ProgrammeSection/ProgrammeSection';
 import InstallationMap from '@/components/sections/InstallationMap/InstallationMap';
 import DemoForm from '@/components/sections/DemoForm/DemoForm';
 import type { Product, GalleryItem } from '@/types';
@@ -19,6 +20,7 @@ import { ClearViewGallery } from '@/components/sections/ClearView/ClearViewGalle
 import { Popup } from '@/components/shared/Popup/Popup';
 import { SurgeryVideoDetails } from '@/components/shared/SurgeryVideoDetails/surgeryVideoDetails';
 import { ScrollToTop } from '@/components/shared/ScrollToTop/ScrollToTop';
+import { LiveClubFAB } from '@/components/shared/LiveClubFAB/LiveClubFAB';
 
 export default function Home() {
     useUTMSource();
@@ -154,6 +156,7 @@ export default function Home() {
                 <ComparisonTable />
                 <Accessories />
                 <Reviews />
+                <ProgrammeSection />
                 <SurgeryVideos />
                 <DemoForm />
             </main>
@@ -170,10 +173,11 @@ export default function Home() {
             // isGalleryImages={isGalleryImages}
             // galleryImageData={clearViewImages}
             />
-            <Popup isOpen={isModalOpen} onClose={handleCloseModal}>
+            {/* <Popup isOpen={isModalOpen} onClose={handleCloseModal}>
                 <SurgeryVideoDetails onClose={handleCloseModal} />
-            </Popup>
+            </Popup> */}
             <ScrollToTop />
+            <LiveClubFAB />
         </div>
     );
 };
