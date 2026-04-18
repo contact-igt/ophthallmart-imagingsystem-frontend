@@ -70,6 +70,8 @@ const Hero: React.FC = () => {
                         </button>
                     </div>
                 </div>
+
+                
                 <div className="relative group cursor-pointer">
                     <div className="absolute inset-0 bg-blue-50 rounded-full blur-3xl -z-10 opacity-50"></div>
                     <div className="overflow-hidden rounded-3xl border-4 border-white bg-white">
