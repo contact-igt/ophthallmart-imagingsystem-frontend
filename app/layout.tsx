@@ -9,6 +9,9 @@ const outfit = Outfit({
     display: "swap",
 });
 
+
+
+
 export const metadata: Metadata = {
     title: "Ophthall - Advanced Ophthalmic Imaging Systems",
     description: "Convert your existing slit lamp or microscope into a High-Resolution digital documentation system.",
