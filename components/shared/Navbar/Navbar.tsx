@@ -55,7 +55,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollTo }) => {
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-600"></span>
                             </span>
-                            Live Club
+                           Programme 
                         </button>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollTo }) => {
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
                         </span>
-                        Live Club
+                        Programme
                     </button>
 
                     {/* Mobile Menu Button */}
