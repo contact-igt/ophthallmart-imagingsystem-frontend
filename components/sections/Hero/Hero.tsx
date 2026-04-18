@@ -10,6 +10,9 @@ const Hero: React.FC = () => {
         if (el) el.scrollIntoView({ behavior: 'smooth' });
     };
 
+
+    
+
     const scrollToLiveSession = () => {
         const target = document.getElementById('video-club');
         if (!target) return;
