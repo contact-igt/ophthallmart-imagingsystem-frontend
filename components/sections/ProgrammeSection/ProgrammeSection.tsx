@@ -12,7 +12,7 @@ const ProgrammeSection: React.FC = () => {
                 <div className="text-center mb-12">
                     <div className="inline-flex items-center gap-2 bg-ophthall-blue/10 text-ophthall-blue px-4 py-2 rounded-full mb-4">
                         <Video className="w-4 h-4" />
-                        <span className="text-[11px] font-black uppercase tracking-[0.3em]">Live Programme</span>
+                        <span className="text-[11px] font-black uppercase tracking-[0.3em]">Programme</span>
                     </div>
                     <h2 className="text-3xl md:text-4xl font-light text-ophthall-blue tracking-tighter">
                         Ophthall <span className="font-bold">Surgical Video Club</span>
