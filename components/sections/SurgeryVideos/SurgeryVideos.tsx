@@ -16,7 +16,7 @@ interface Video {
 const formSchema = Yup.object({
     name: Yup.string().required("Name required"),
     clinic: Yup.string().required("Clinic required"),
-    city: Yup.string().required("City required"),
+    email: Yup.string().required("Email required"),
     mobile: Yup.string()
         .required("Mobile required")
         .matches(/^[0-9]{10}$/, "Invalid mobile number"),
@@ -117,19 +117,19 @@ const SurgeryVideos: React.FC = () => {
             link: 'https://www.youtube.com/watch?v=goeg2ISzlVo',
             title: 'Complicated Cataract Phaco Surgery'
         },
-           {
+        {
             id: '16',
             url: 'https://www.youtube.com/embed/7ITIoj_XFBg?si=XuZ0TomSl7aS4Bca',
             link: 'https://www.youtube.com/watch?v=7ITIoj_XFBg',
             title: 'Refractive Lens Exchange'
         },
-          {
+        {
             id: '17',
             url: 'https://www.youtube.com/embed/evxtQyFgFsc?si=eUq1wM1nc2Zp3CnS',
             link: 'https://www.youtube.com/watch?v=evxtQyFgFsc&t=15s',
             title: "Corneal opacity, soft cataract management by Stop & phaco. Topical phacoemulsification surgery."
         },
-         {
+        {
             id: '18',
             url: 'https://www.youtube.com/embed/d0s-aMdI85s?si=U9ODr0pNFBhVda2E',
             link: 'https://www.youtube.com/watch?v=d0s-aMdI85s',
@@ -141,7 +141,7 @@ const SurgeryVideos: React.FC = () => {
             link: 'https://www.youtube.com/watch?v=JHtIveRnknc',
             title: "Topical phacoemulsification cataract surgery, EDOF IOL, Stop and chop technique."
         },
-         {
+        {
             id: '20',
             url: 'https://www.youtube.com/embed/VAIcf62dS0A?si=xVNcwJoYRb_t3qaf',
             link: 'https://www.youtube.com/watch?v=VAIcf62dS0A',
@@ -370,7 +370,7 @@ const SurgeryVideos: React.FC = () => {
             const formData = {
                 name: data?.name,
                 clinic: data?.clinic,
-                city: data?.city,
+                email: data?.email,
                 mobile: data?.mobile,
                 interested_in: data?.interested_in,
                 fill_details: data?.fill_details,
@@ -488,7 +488,22 @@ const SurgeryVideos: React.FC = () => {
                         <Youtube className="w-6 h-6" /> Subscribe to Our Channel
                     </a>
 
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' });
+                            setTimeout(() => {
+                                window.dispatchEvent(new CustomEvent('selectInterestedIn', { detail: 'List your video' }));
+                            }, 100);
+                        }}
+                        className="flex items-center gap-3 px-8 py-4 bg-red-600 hover:bg-red-700 text-white text-sm font-black uppercase tracking-widest rounded-full shadow-lg transition-all hover:scale-105"
+                    >
+                       List your video
+                    </button>
+
                 </div>
+
+
             </div>
 
             {/* Demo Form Modal */}
@@ -546,13 +561,13 @@ const SurgeryVideos: React.FC = () => {
                                 </div>
                                 <div>
                                     <input
-                                        {...register("city")}
-                                        type="text"
-                                        placeholder="City"
-                                        className={`w-full p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-ophthall-orange transition-all ${errors.city ? "ring-2 ring-red-500" : "focus:ring-ophthall-orange"}`}
+                                        {...register("email")}
+                                        type="email"
+                                        placeholder="Email"
+                                        className={`w-full p-4 bg-gray-50 border-none rounded-lg outline-none focus:ring-ophthall-orange transition-all ${errors.email ? "ring-2 ring-red-500" : "focus:ring-ophthall-orange"}`}
                                     />
-                                    {errors.city && (
-                                        <p className="text-red-500 text-sm font-bold mt-2">{errors.city.message}</p>
+                                    {errors.email && (
+                                        <p className="text-red-500 text-sm font-bold mt-2">{errors.email.message}</p>
                                     )}
                                 </div>
                                 <div>
@@ -574,7 +589,7 @@ const SurgeryVideos: React.FC = () => {
                                         </option>
                                         <option>Interested in Slit Lamp Imaging </option>
                                         <option>Interested in Accessories</option>
-                                        <option>Subscribe To Our Channel
+                                        <option>List your video
                                         </option>
                                         <option>Submit Videos to Channel
                                         </option>

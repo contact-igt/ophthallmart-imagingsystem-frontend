@@ -1,14 +1,14 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import * as Yup from 'yup';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 const formSchema = Yup.object({
     name: Yup.string().required("Name required"),
     clinic: Yup.string().required("Clinic required"),
-    city: Yup.string().required("City required"),
+    email: Yup.string().required("Email required"),
     mobile: Yup.string()
         .required("Mobile required")
         .matches(/^[0-9]{10}$/, "Invalid mobile number"),
@@ -20,9 +20,20 @@ type FormData = Yup.InferType<typeof formSchema>;
 const DemoForm: React.FC = () => {
     const router = useRouter();
     const [error, setError] = useState("");
-    const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<FormData>({
+    const { register, handleSubmit, formState: { errors, isSubmitting }, reset, setValue } = useForm<FormData>({
         resolver: yupResolver(formSchema),
     })
+
+    useEffect(() => {
+        const handleSelectEvent = (e: Event) => {
+            const customEvent = e as CustomEvent;
+            if (customEvent.detail) {
+                setValue('interested_in', customEvent.detail);
+            }
+        };
+        window.addEventListener('selectInterestedIn', handleSelectEvent);
+        return () => window.removeEventListener('selectInterestedIn', handleSelectEvent);
+    }, [setValue]);
 
     const onSubmit = async (data: FormData) => {
         try {
@@ -32,7 +43,7 @@ const DemoForm: React.FC = () => {
             const formData = {
                 name: data?.name,
                 clinic: data?.clinic,
-                city: data?.city,
+                email: data?.email,
                 mobile: data?.mobile,
                 interested_in: data?.interested_in,
                 fill_details: data?.fill_details,
@@ -60,7 +71,7 @@ const DemoForm: React.FC = () => {
 
     const handleGoogleSheetForm = async (formData: URLSearchParams) => {
         try {
-            const res = await fetch("https://script.google.com/macros/s/AKfycby8nMFdnImR8Hxk1GaBJx90p66U7TaMWwq_FXQT_3PZ9nDUjdfATIXFhRw5yWtkQ7VULA/exec", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: formData.toString() })
+            const res = await fetch("https://script.google.com/macros/s/AKfycbzaFDkcABmXv5WTjcewO-oAO1w93D6y2PQLZKDZUnrAGbOStrvQONS4HUzrxp2FZS1ECA/exec", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: formData.toString() })
             const data = await res.json();
             console.log(data);
         } catch (error) {
@@ -72,11 +83,16 @@ const DemoForm: React.FC = () => {
         <section id="demo" className="py-32 bg-ophthall-bg">
             <div className="max-w-[900px] mx-auto px-6">
                 <div className="text-center mb-16">
-                    <h2 className="text-ophthall-orange font-black uppercase tracking-[0.3em] text-[11px] mb-6">
+                    {/* <h2 className="text-ophthall-orange font-black uppercase tracking-[0.3em] text-[11px] mb-6">
                         Connect to Us
                     </h2>
                     <h3 className="text-5xl font-light text-ophthall-blue tracking-tighter">
                         Experience <span className="font-bold text-ophthall-orange">OIS Fidelity.</span>
+                    </h3> */}
+
+
+                    <h3 className="text-5xl font-light text-ophthall-blue tracking-tighter">
+                        Connect <span className="font-bold text-ophthall-orange">Us</span>
                     </h3>
                 </div>
                 <div className="bg-white p-12 rounded-3xl shadow-2xl border border-gray-100">
@@ -105,13 +121,13 @@ const DemoForm: React.FC = () => {
                         </div>
                         <div>
                             <input
-                                {...register("city")}
-                                type="text"
-                                placeholder="City"
-                                className={`p-4 bg-gray-50 w-full border-none rounded-lg outline-none focus:ring-2 focus:ring-ophthall-orange transition-all ${errors.city ? "ring-2 ring-red-500" : "focus:ring-2 focus:ring-ophthall-orange"}`}
+                                {...register("email")}
+                                type="email"
+                                placeholder="Email"
+                                className={`p-4 bg-gray-50 w-full border-none rounded-lg outline-none focus:ring-2 focus:ring-ophthall-orange transition-all ${errors.email ? "ring-2 ring-red-500" : "focus:ring-2 focus:ring-ophthall-orange"}`}
                             />
-                            {errors.city && (
-                                <p className="text-red-500 text-sm font-bold mt-2">{errors.city.message}</p>
+                            {errors.email && (
+                                <p className="text-red-500 text-sm font-bold mt-2">{errors.email.message}</p>
                             )}
                         </div>
                         <div>
@@ -133,10 +149,11 @@ const DemoForm: React.FC = () => {
                                 </option>
                                 <option>Interested in Slit Lamp Imaging</option>
                                 <option>Interested in Accessories</option>
-                                <option>Subscribe To Our Channel
+                                <option>List your video
                                 </option>
                                 <option>Submit Videos to Channel
                                 </option>
+                                <option>Join Ophthall Video Club Session</option>
                             </select>
                             {errors.interested_in && (
                                 <p className="text-red-500 text-sm font-bold mt-2">{errors.interested_in.message}</p>

@@ -18,7 +18,7 @@ const ProgrammeSection: React.FC = () => {
                         Ophthall <span className="font-bold">Surgical Video Club</span>
                     </h2>
                     <p className="text-gray-500 font-light mt-3 text-base">
-                        Online Recorded Surgical Video Discussions — Episode 1
+                        Online surgical video insights
                     </p>
                 </div>
 
@@ -26,7 +26,7 @@ const ProgrammeSection: React.FC = () => {
                 <div className="rounded-3xl overflow-hidden shadow-2xl">
                     <div className="relative w-full">
                         <Image
-                            src="/assets/programm/poster.jpeg"
+                            src="/assets/programm/poster_2.png"
                             alt="Ophthall Surgical Video Club — Episode 1 Poster"
                             width={1000}
                             height={600}
@@ -36,17 +36,21 @@ const ProgrammeSection: React.FC = () => {
                     </div>
                     <div className="bg-ophthall-blue py-7 px-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                         <p className="text-white/80 text-sm font-medium">
-                            18 Apr 2026 &nbsp;|&nbsp; 08 – 09 PM
+                            02 May 2026 &nbsp;|&nbsp; 08 – 09 PM
                         </p>
-                        <a
-                            href="https://us06web.zoom.us/meeting/register/V8HfH62xRnCFbqeVePzDRA"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <button
+                            onClick={(e) => {
+                                e.preventDefault();
+                                document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' });
+                                setTimeout(() => {
+                                    window.dispatchEvent(new CustomEvent('selectInterestedIn', { detail: 'Join Ophthall Video Club Session' }));
+                                }, 100);
+                            }}
                             className="inline-flex items-center gap-2 px-10 py-4 bg-ophthall-orange hover:bg-orange-600 text-white font-black uppercase tracking-widest rounded-full shadow-lg transition-all hover:scale-105 text-sm"
                         >
                             <Video className="w-4 h-4" />
                             Register Now
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
