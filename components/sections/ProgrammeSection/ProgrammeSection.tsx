@@ -134,7 +134,7 @@ const ProgrammeSection: React.FC = () => {
                                     <ArrowRight className="w-4 h-4" />
                                 </a>
                                 <a
-                                    href="https://us06web.zoom.us/j/6425854376?pwd=aK9Dpp2U1l8aP3HyQR9kW5okvrplC1.1&omn=87665774836"
+                                    href="https://us06web.zoom.us/meeting/register/9CUQrpZdT_GjWYZTyXJerQ"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="w-full inline-flex items-center cursor-pointer justify-center gap-2 px-6 py-4 bg-[#00a0e3] hover:bg-[#00a0e3d8]  text-white font-black uppercase tracking-widest rounded-2xl shadow-lg transition-all duration-300 text-[12px]"
