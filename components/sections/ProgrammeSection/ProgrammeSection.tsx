@@ -33,7 +33,7 @@ const ProgrammeSection: React.FC = () => {
                                 alt="Previous Surgical Video Club Poster"
                                 width={800}
                                 height={600}
-                                className="w-full min-h-[280px] h-auto md:h-[360px] opacity-90 transition-opacity duration-700 block"
+                                className="w-full min-h-[200px] h-auto object-cover opacity-90 transition-opacity duration-700 block"
                                 priority
                             />
                             <a target='_blank' rel='noopener noreferrer' href="https://youtu.be/uilYic57Muc?si=aaIjrkZnQ7duIvKz"  className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
@@ -80,25 +80,25 @@ const ProgrammeSection: React.FC = () => {
                                 alt="Upcoming Surgical Video Club Poster"
                                 width={800}
                                 height={600}
-                                className="w-full min-h-[280px] h-auto md:h-[360px] transition-opacity duration-700 block"
+                                className="w-full min-h-[200px] h-auto object-cover transition-opacity duration-700 block"
                                 priority
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
 
                             {/* Highlighted Date/Time Overlay */}
-                            <div className="absolute bottom-6 left-6 right-6 flex items-center gap-4">
-                                <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-3 rounded-2xl flex-1 flex items-center gap-3">
-                                    <Calendar className="w-5 h-5 text-ophthall-orange" />
+                            <div className="absolute bottom-0 md:bottom-6 left-6 right-6 flex items-center gap-4">
+                                <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-2.5 md:p-3 rounded-2xl flex-1 flex items-center gap-3">
+                                    <Calendar className="w-4 h-4 md:w-5 md:h-5 text-ophthall-orange" />
                                     <div className="flex flex-col">
-                                        <span className="text-[9px] font-bold text-white/60 uppercase tracking-wider">Date</span>
-                                        <span className="text-xs font-bold text-white">02 May 2026</span>
+                                        <span className="text-[8px] md:text-[9px] font-bold text-white/60 uppercase tracking-wider">Date</span>
+                                        <span className="text-[10px] md:text-xs font-bold text-white">02 May 2026</span>
                                     </div>
                                 </div>
-                                <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-3 rounded-2xl flex-1 flex items-center gap-3">
-                                    <Clock className="w-5 h-5 text-ophthall-orange" />
+                                <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-2.5 rounded-2xl flex-1 flex items-center gap-3">
+                                    <Clock className="w-4 h-4 md:w-5 md:h-5 text-ophthall-orange" />
                                     <div className="flex flex-col">
-                                        <span className="text-[9px] font-bold text-white/60 uppercase tracking-wider">Time</span>
-                                        <span className="text-xs font-bold text-white">08:00 PM IST</span>
+                                        <span className="text-[8px] md:text-[9px] font-bold text-white/60 uppercase tracking-wider">Time</span>
+                                        <span className="text-[10px] md:text-xs font-bold text-white">08:00 PM IST</span>
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +116,7 @@ const ProgrammeSection: React.FC = () => {
                             <p className="text-slate-300 text-sm mb-10 leading-relaxed line-clamp-1 italic">
                                 Direct Chop in Phaco – It’s Advantage in My Bouquet of Cataracts.
                             </p>
-                            <div className='flex items-center gap-3'>
+                            <div className='flex flex-col md:flex-row items-center gap-4 md:gap-3'>
                                 <a
 
                                     onClick={(e) => {
