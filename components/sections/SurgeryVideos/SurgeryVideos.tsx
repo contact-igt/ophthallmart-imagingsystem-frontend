@@ -413,25 +413,25 @@ const SurgeryVideos: React.FC = () => {
 
     return (
         <section id="surgery-videos" className="py-32 bg-white">
-            <div className="max-w-[1000px] mx-auto px-12 text-center">
+            <div className="max-w-[1100px] mx-auto px-4 md:px-12 text-center">
                 <h2 className="text-ophthall-orange font-black uppercase tracking-[0.3em] text-[11px] mb-6">
                     Real-World Results
                 </h2>
                 <h3 className="text-4xl md:text-5xl font-light text-ophthall-blue tracking-tighter mb-12">
                     Ophthalmic Surgical <span className="font-bold"> Education</span>
                 </h3>
-                <p className="text-lg text-gray-500 font-light mb-16">
+                <p className="text-lg text-gray-500 font-light mb-16 max-w-2xl mx-auto">
                     Library of surgical videos by expert surgeons recorded directly using Ophthall imaging system
                 </p>
                 {/* Carousel Container */}
                 <div className="relative">
                     {/* Enhanced Video Counter Badge - Outside container, top-right corner */}
                     <div className="absolute top-[-35px] md:top-[-48px] left-1/2 -translate-x-1/2 z-20 bg-gradient-to-r from-ophthall-orange to-orange-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-black text-base shadow-2xl border-2 border-white/30 backdrop-blur-sm animate-fade-in">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 whitespace-nowrap">
                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
                             </svg>
-                            <span className="text-sm sm:text-md md:text-lg">Video {currentIndex + 1} of {videos.length}</span>
+                            <span className="text-xs sm:text-sm md:text-lg">Video {currentIndex + 1} of {videos.length}</span>
                         </div>
                     </div>
 
@@ -449,29 +449,29 @@ const SurgeryVideos: React.FC = () => {
                         {/* Navigation Buttons */}
                         <button
                             onClick={goToPrevious}
-                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-ophthall-blue p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100 hover:scale-110"
+                            className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-ophthall-blue p-2 md:p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100 hover:scale-110 z-10"
                             aria-label="Previous video"
                         >
-                            <ChevronLeft className="w-6 h-6" />
+                            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
                         </button>
                         <button
                             onClick={goToNext}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-ophthall-blue p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100 hover:scale-110"
+                            className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-ophthall-blue p-2 md:p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100 hover:scale-110 z-10"
                             aria-label="Next video"
                         >
-                            <ChevronRight className="w-6 h-6" />
+                            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
                         </button>
                     </div>
 
                     {/* Dot Indicators */}
-                    <div className="flex justify-center gap-2 md:gap-3 mt-8">
+                    <div className="flex flex-wrap justify-center gap-1.5 md:gap-3 mt-8 px-4">
                         {videos.map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => goToSlide(index)}
-                                className={`transition-all rounded-full ${index === currentIndex
-                                    ? 'w-9 md:w-12 h-2 md:h-3 bg-ophthall-orange'
-                                    : 'w-2 h-2 md:w-3 md:h-3 bg-gray-300 hover:bg-gray-400'
+                                className={`transition-all duration-300 rounded-full ${index === currentIndex
+                                    ? 'w-6 md:w-12 h-1.5 md:h-2 bg-ophthall-orange shadow-sm'
+                                    : 'w-1.5 h-1.5 md:w-2 md:h-2 bg-gray-200 hover:bg-gray-300'
                                     }`}
                                 aria-label={`Go to video ${index + 1}`}
                             />
@@ -479,11 +479,11 @@ const SurgeryVideos: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="mt-12 flex justify-center gap-6">
+                <div className="mt-16 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 max-w-2xl mx-auto">
                     <a
                         href="https://www.youtube.com/@senthil.ophthall"
                         target='_blank'
-                        className="flex items-center gap-3 px-8 py-4 bg-red-600 hover:bg-red-700 text-white text-sm font-black uppercase tracking-widest rounded-full shadow-lg transition-all hover:scale-105"
+                        className="w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-red-600 hover:bg-red-700 text-white text-sm font-black uppercase tracking-widest rounded-full shadow-lg transition-all hover:scale-105"
                     >
                         <Youtube className="w-6 h-6" /> Subscribe to Our Channel
                     </a>
@@ -496,11 +496,10 @@ const SurgeryVideos: React.FC = () => {
                                 window.dispatchEvent(new CustomEvent('selectInterestedIn', { detail: 'List your video' }));
                             }, 100);
                         }}
-                        className="flex items-center gap-3 px-8 py-4 bg-red-600 hover:bg-red-700 text-white text-sm font-black uppercase tracking-widest rounded-full shadow-lg transition-all hover:scale-105"
+                        className="w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-red-600 hover:bg-red-700 text-white text-sm font-black uppercase tracking-widest rounded-full shadow-lg transition-all hover:scale-105"
                     >
                        List your video
                     </button>
-
                 </div>
 
 
