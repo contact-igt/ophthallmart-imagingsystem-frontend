@@ -3,8 +3,6 @@
 import { Video, Calendar, Clock, ArrowRight, PlayCircle, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from 'react';
 
 // Custom Arrow Components for the Carousel
@@ -13,7 +11,7 @@ const NextArrow = (props: any) => {
     const isDisabled = className?.includes("slick-disabled");
     return (
         <button
-            className={`${className} absolute -right-2 md:-right-16 top-1/2 -translate-y-1/2 z-20 bg-ophthall-blue text-white shadow-2xl rounded-full p-4 md:p-8 hover:bg-slate-800 transition-all group border border-white/20 flex items-center justify-center ${isDisabled ? 'opacity-10 cursor-not-allowed grayscale' : 'opacity-100 active:scale-90'}`}
+            className={`${className} absolute -right-2 md:-right-16 top-1/2 -translate-y-1/2 z-20 bg-ophthall-blue text-white shadow-2xl rounded-full hover:bg-slate-800 transition-all group border border-white/20 flex items-center justify-center ${isDisabled ? 'opacity-10 cursor-not-allowed grayscale' : 'opacity-100 active:scale-90'}`}
             style={{ ...style, display: "flex" }}
             onClick={onClick}
             disabled={isDisabled}
@@ -29,7 +27,7 @@ const PrevArrow = (props: any) => {
     const isDisabled = className?.includes("slick-disabled");
     return (
         <button
-            className={`${className} absolute -left-2 md:-left-16 top-1/2 -translate-y-1/2 z-20 bg-ophthall-blue text-white shadow-2xl rounded-full p-4 md:p-8 hover:bg-slate-800 transition-all group border border-white/20 flex items-center justify-center ${isDisabled ? 'opacity-10 cursor-not-allowed grayscale' : 'opacity-100 active:scale-90'}`}
+            className={`${className} absolute -left-2 md:-left-16 top-1/2 -translate-y-1/2 z-20 bg-ophthall-blue text-white shadow-2xl rounded-full hover:bg-slate-800 transition-all group border border-white/20 flex items-center justify-center ${isDisabled ? 'opacity-10 cursor-not-allowed grayscale' : 'opacity-100 active:scale-90'}`}
             style={{ ...style, display: "flex" }}
             onClick={onClick}
             disabled={isDisabled}
@@ -182,7 +180,7 @@ const ProgrammeSection: React.FC = () => {
 
                                         {/* Content Area */}
                                         <div className="p-6 md:p-8 flex-1 flex flex-col">
-                                            <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+                                            <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
                                                 <h3 className="text-lg md:text-xl font-bold text-white uppercase tracking-tight leading-tight flex-1 min-w-[120px]">{episode.label}</h3>
                                                 {episode.type === 'upcoming' ? (
                                                     <div className="shrink-0 px-3 py-1.5 bg-ophthall-orange text-white rounded-full text-[9px] font-black uppercase shadow-lg flex items-center gap-1.5">
@@ -197,26 +195,27 @@ const ProgrammeSection: React.FC = () => {
                                                 )}
                                             </div>
                                             
-                                            {episode.type === 'upcoming' && (
-                                                <div className="flex flex-wrap items-center gap-2 mb-6">
-                                                    <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-3 md:px-3.5 py-2 md:py-2.5 rounded-xl border border-white/10">
-                                                        <Calendar className="w-3.5 h-3.5 md:w-4 md:h-4 text-ophthall-orange" />
-                                                        <span className="text-[11px] md:text-[12px] font-bold text-white">{episode.date}</span>
+                                            <div className="flex flex-col gap-4 mb-6">
+                                                {episode.type === 'upcoming' && (
+                                                    <div className="flex flex-wrap items-center gap-2">
+                                                        <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-3 md:px-3.5 py-2 md:py-2.5 rounded-xl border border-white/10">
+                                                            <Calendar className="w-3.5 h-3.5 md:w-4 md:h-4 text-ophthall-orange" />
+                                                            <span className="text-[11px] md:text-[12px] font-bold text-white">{episode.date}</span>
+                                                        </div>
+                                                        <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-3 md:px-3.5 py-2 md:py-2.5 rounded-xl border border-white/10">
+                                                            <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-ophthall-orange" />
+                                                            <span className="text-[11px] md:text-[12px] font-bold text-white">{episode.time}</span>
+                                                        </div>
                                                     </div>
-                                                    <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-3 md:px-3.5 py-2 md:py-2.5 rounded-xl border border-white/10">
-                                                        <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-ophthall-orange" />
-                                                        <span className="text-[11px] md:text-[12px] font-bold text-white">{episode.time}</span>
-                                                    </div>
-                                                </div>
-                                            )}
+                                                )}
 
-                                            <p className={`text-sm mb-6 md:mb-10 leading-relaxed italic line-clamp-2 flex-1 ${episode.type === 'upcoming' ? 'text-slate-300' : 'text-slate-400'}`}>
-                                                "{episode.title}"
-                                            </p>
+                                                <p className={`text-sm leading-relaxed italic line-clamp-2 ${episode.type === 'upcoming' ? 'text-slate-300' : 'text-slate-400'}`}>
+                                                    "{episode.title}"
+                                                </p>
+                                            </div>
 
-                                            <div className="mt-auto">
+                                            <div className="mt-auto pt-4">
                                                 {episode.type === 'upcoming' ? (
-                                                <div className='flex flex-col md:flex-row items-center gap-3'>
                                                     <button
                                                         onClick={(e) => {
                                                             e.preventDefault();
@@ -230,26 +229,16 @@ const ProgrammeSection: React.FC = () => {
                                                         <span>Register</span>
                                                         <ArrowRight className="w-3.5 h-3.5" />
                                                     </button>
-                                                    {/* <a
-                                                    href={episode.link}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#00a0e3] hover:bg-[#00a0e3d8] text-white font-black uppercase tracking-widest rounded-2xl shadow-lg transition-all duration-300 text-[11px]"
-                                                >
-                                                    <span>Join Now</span>
-                                                    <ExternalLink className="w-3.5 h-3.5" />
-                                                </a> */}
-                                                </div>
-                                            ) : (
-                                                <a
-                                                    href={episode.link}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="w-full mt-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-white text-[#0F172A] hover:bg-ophthall-orange hover:text-white font-black uppercase tracking-widest rounded-2xl transition-all duration-300 text-[12px] shadow-lg transform active:scale-[0.98]"
-                                                >
-                                                    <Video className="w-4 h-4" />
-                                                    Watch Recording
-                                                </a>
+                                                ) : (
+                                                    <a
+                                                        href={episode.link}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-white text-[#0F172A] hover:bg-ophthall-orange hover:text-white font-black uppercase tracking-widest rounded-2xl transition-all duration-300 text-[12px] shadow-lg transform active:scale-[0.98]"
+                                                    >
+                                                        <Video className="w-4 h-4" />
+                                                        Watch Recording
+                                                    </a>
                                                 )}
                                             </div>
                                         </div>
@@ -266,79 +255,6 @@ const ProgrammeSection: React.FC = () => {
                     </p>
                 </div>
             </div>
-
-            <style jsx global>{`
-                .episode-slider .slick-prev,
-                .episode-slider .slick-next {
-                    background-color: #0F172A !important;
-                    width: 70px !important;
-                    height: 70px !important;
-                    border-radius: 50% !important;
-                    display: flex !important;
-                    align-items: center !important;
-                    justify-content: center !important;
-                    transition: all 0.3s ease !important;
-                    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
-                }
-                .episode-slider .slick-prev:hover,
-                .episode-slider .slick-next:hover {
-                    background-color: #1e293b !important;
-                    transform: translateY(-50%) scale(1.05) !important;
-                }
-                .episode-slider .slick-disabled {
-                    opacity: 0.4 !important;
-                    cursor: not-allowed !important;
-                    pointer-events: none !important;
-                    filter: grayscale(1) !important;
-                    box-shadow: none !important;
-                }
-                .episode-slider .slick-dots li {
-                    margin: 0 2px !important;
-                    width: 12px !important;
-                    height: 12px !important;
-                    transition: all 0.3s ease;
-                }
-                .episode-slider .slick-dots li.slick-active {
-                    width: 32px !important;
-                }
-                .episode-slider .slick-dots li.slick-active .dot-indicator {
-                    background-color: #f58220 !important;
-                    width: 30px;
-                }
-                .episode-slider .slick-list {
-                    overflow: visible;
-                }
-                .episode-slider .slick-prev:before, 
-                .episode-slider .slick-next:before {
-                    display: none;
-                }
-                @media (max-width: 768px) {
-                    .episode-slider .slick-list {
-                        overflow: hidden;
-                    }
-                    .episode-slider .slick-prev,
-                    .episode-slider .slick-next {
-                        width: 44px !important;
-                        height: 44px !important;
-                    }
-                    .episode-slider .slick-dots {
-                        bottom: -50px !important;
-                    }
-                }
-                .episode-slider .slick-track {
-                    display: flex !important;
-                    gap: 0;
-                }
-                .episode-slider .slick-slide {
-                    height: inherit !important;
-                    display: flex !important;
-                }
-                .episode-slider .slick-slide > div {
-                    width: 100%;
-                    display: flex;
-                }
-            `}</style>
         </section>
     );
 };
