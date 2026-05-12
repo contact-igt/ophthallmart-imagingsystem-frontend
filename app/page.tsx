@@ -5,6 +5,7 @@ import Navbar from '@/components/shared/Navbar/Navbar';
 import GalleryModal from '@/components/shared/GalleryModal/GalleryModal';
 import Footer from '@/components/shared/Footer/Footer';
 import Hero from '@/components/sections/Hero/Hero';
+import HeroInstagram from '@/components/sections/Hero/HeroInstagram';
 import ClearView from '@/components/sections/ClearView/ClearView';
 import ProductSection from '@/components/sections/ProductSection/ProductSection';
 import ComparisonTable from '@/components/sections/ComparisonTable/ComparisonTable';
@@ -102,6 +103,7 @@ export default function Home() {
 
             <main>
                 <Hero />
+                <HeroInstagram />
                 <ClearView
                     onOpenGallery={setGalleryProduct}
                     onInstallationVideos={() => openInstallationVideo("clearer-view")}

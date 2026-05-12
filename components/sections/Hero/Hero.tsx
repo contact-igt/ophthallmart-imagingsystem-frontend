@@ -1,25 +1,48 @@
 'use client';
 
-import React from 'react';
-import { ArrowRight, Radio } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { ArrowRight, Play, Pause } from 'lucide-react';
 import Image from 'next/image';
 
 const Hero: React.FC = () => {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const videoSrc = '/assets/video.mp4';
     const scrollToDemo = () => {
-        const el = document.getElementById('demo');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        const target = document.getElementById('demo');
+        if (!target) return;
+        const start = window.scrollY;
+        const end = target.offsetTop - 100;
+        const duration = 1200;
+        let startTime: number | null = null;
+        const ease = (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        const step = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            window.scrollTo(0, start + (end - start) * ease(progress));
+            if (progress < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
     };
 
+    const handleVideoClick = () => {
+        if (videoRef.current) {
+            if (isPlaying) {
+                videoRef.current.pause();
+            } else {
+                videoRef.current.play();
+            }
+            setIsPlaying(!isPlaying);
+        }
+    };
 
-    
-
-    const scrollToLiveSession = () => {
+    const scrollToLiveSession = (e:any) => {
+            e.preventDefault();
         const target = document.getElementById('video-club');
         if (!target) return;
         const start = window.scrollY;
-        const sectionBottom = target.offsetTop + target.offsetHeight;
-        const end = sectionBottom - window.innerHeight + 20;
-        const duration = 3500;
+        const end = target.offsetTop - 100;
+        const duration = 1200;
         let startTime: number | null = null;
         const ease = (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
         const step = (timestamp: number) => {
@@ -73,18 +96,49 @@ const Hero: React.FC = () => {
                         </button>
                     </div>
                 </div>
-
                 
-                <div className="relative group cursor-pointer">
-                    <div className="absolute inset-0 bg-blue-50 rounded-full blur-3xl -z-10 opacity-50"></div>
-                    <div className="overflow-hidden rounded-3xl border-4 border-white bg-white">
-                        <Image
-                            src="/assets/Imaging_system_1.png"
-                            className="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-105"
-                            alt="Imaging System"
-                            width={800}
-                            height={800}
-                        />
+                <div className="flex flex-col gap-6">
+                    {/* Video Section */}
+                    <div className=" lg:hidden relative group cursor-pointer">
+                        {/* <div className="absolute inset-0 bg-blue-50 rounded-full blur-3xl -z-10 opacity-50"></div> */}
+                        <div className="overflow-hidden rounded-3xl border-4 border-white bg-black shadow-2xl">
+                            <video
+                                ref={videoRef}
+                                src={videoSrc}
+                                className="w-full h-auto transition-transform duration-700 ease-out"
+                                onClick={handleVideoClick}
+                                onPlay={() => setIsPlaying(true)}
+                                onPause={() => setIsPlaying(false)}
+                                poster=""
+                            />
+                            {/* Play/Pause Overlay */}
+                            <div
+                                onClick={handleVideoClick}
+                                className="absolute inset-0 bg-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-pointer"
+                            >
+                                <div className="bg-white/20 backdrop-blur-md rounded-full p-4 transform scale-90 group-hover:scale-100 transition-all duration-300 border border-white/30">
+                                    {isPlaying ? (
+                                        <Pause className="w-12 h-12 text-white fill-white" />
+                                    ) : (
+                                        <Play className="w-12 h-12 text-white fill-white" />
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Product Image Section */}
+                    <div className="relative group cursor-pointer">
+                        <div className="absolute inset-0 bg-blue-50 rounded-full blur-3xl -z-10 opacity-50"></div>
+                        <div className="overflow-hidden rounded-3xlbg-white">
+                            <Image
+                                src="/assets/Imaging_system_1.png"
+                                className="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-105"
+                                alt="Imaging System"
+                                width={800}
+                                height={800}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
