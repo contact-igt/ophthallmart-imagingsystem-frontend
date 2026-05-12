@@ -103,13 +103,13 @@ const HeroInstagram: React.FC<Props> = ({
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center gap-2 bg-blue-50 text-ophthall-blue px-3 py-1.5 rounded-full mb-4 border border-blue-100">
                         <span className="w-2 h-2 bg-ophthall-blue rounded-full"></span>
-                        <span className="text-[9px] font-black uppercase tracking-[0.3em]">Live Sessions</span>
+                        <span className="text-[9px] font-black uppercase tracking-[0.3em]">Surgical Video Discussions</span>
                     </div>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-tighter leading-tight mb-4">
                         Join <span className="font-bold">Ophthall Video Club</span>
                     </h2>
                     <p className="text-lg text-white/90 max-w-2xl mx-auto">
-                        Watch live surgical sessions, learn from experts, and join a community of ophthalmologists.
+                        Explore surgical video discussions, gain insights from expert surgeons, and connect with ophthalmologists worldwide.
                     </p>
                 </div>
 
