@@ -109,7 +109,7 @@ const Hero: React.FC = () => {
                                 onClick={handleVideoClick}
                                 onPlay={() => setIsPlaying(true)}
                                 onPause={() => setIsPlaying(false)}
-                                poster=""
+                                poster="/assets/thumbnail.jpg"
                             />
                             {/* Play/Pause Overlay */}
                             <div

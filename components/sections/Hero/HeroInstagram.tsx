@@ -129,6 +129,7 @@ const HeroInstagram: React.FC<Props> = ({
                                         onClick={handleVideoClick}
                                         onPlay={() => setIsPlaying(true)}
                                         onPause={() => setIsPlaying(false)}
+                                        poster="/assets/thumbnail.jpg"
                                     />
                                     {/* Play/Pause Overlay */}
                                     <div
