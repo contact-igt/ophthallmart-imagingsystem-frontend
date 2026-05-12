@@ -114,9 +114,9 @@ const Hero: React.FC = () => {
                             {/* Play/Pause Overlay */}
                             <div
                                 onClick={handleVideoClick}
-                                className="absolute inset-0 bg-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-pointer"
+                                className="absolute inset-0 bg-transparent opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-pointer"
                             >
-                                <div className="bg-white/20 backdrop-blur-md rounded-full p-4 transform scale-90 group-hover:scale-100 transition-all duration-300 border border-white/30">
+                                    <div className="bg-slate-950/95 backdrop-blur-md rounded-full p-4 transform scale-90 group-hover:scale-100 transition-all duration-300 border border-white/30">
                                     {isPlaying ? (
                                         <Pause className="w-12 h-12 text-white fill-white" />
                                     ) : (
