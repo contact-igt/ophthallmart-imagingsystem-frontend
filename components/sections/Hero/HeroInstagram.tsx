@@ -136,7 +136,7 @@ const HeroInstagram: React.FC<Props> = ({
                                         onClick={handleVideoClick}
                                         className={`absolute inset-0 bg-black/20  transition-opacity duration-300 flex items-center justify-center cursor-pointer ${isPlaying  ? 'opacity-0' : 'opacity-100'} group-hover:opacity-100`}
                                     >
-                                        <div className="bg-white/20 backdrop-blur-md rounded-full p-4 transform scale-90 group-hover:scale-100 transition-all duration-300 border border-white/30">
+                                        <div className="bg-slate-950/95 backdrop-blur-md rounded-full p-4 transform scale-90 group-hover:scale-100 transition-all duration-300 border border-white/30">
                                             {isPlaying ? (
                                                 <Pause className="w-12 h-12 text-white fill-white" />
                                             ) : (
