@@ -206,7 +206,7 @@ const ProgrammeSection: React.FC = () => {
                                         </p>
                                     </div>
 
-                                    <div className="flex-col md:flex-row items-center justify-center gap-3 mt-auto">
+                                    <div className="flex flex-col md:flex-row items-center justify-center gap-3 mt-auto">
                                         <button
                                             onClick={handleRegister}
                                             className="w-full inline-flex items-center justify-center gap-3 px-8 py-5 bg-ophthall-orange hover:bg-orange-600 text-white font-black uppercase tracking-widest rounded-2xl shadow-2xl transition-all duration-300 text-[13px] group/btn"
