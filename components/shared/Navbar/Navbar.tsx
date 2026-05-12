@@ -8,25 +8,21 @@ import { Menu, X } from 'lucide-react';
 const Navbar: React.FC<NavbarProps> = ({ scrollTo }) => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-    const slowScrollToVideoClub = () => {
+    const slowScrollToVideoClub = (e:any) => {
+            e.preventDefault();
         const target = document.getElementById('video-club');
         if (!target) return;
         const start = window.scrollY;
-        const sectionBottom = target.offsetTop + target.offsetHeight;
-        const end = sectionBottom - window.innerHeight + 20;
-        const duration = 3500;
+        const end = target.offsetTop - 100;
+        const duration = 1200;
         let startTime: number | null = null;
-
         const ease = (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-
         const step = (timestamp: number) => {
             if (!startTime) startTime = timestamp;
-            const elapsed = timestamp - startTime;
-            const progress = Math.min(elapsed / duration, 1);
+            const progress = Math.min((timestamp - startTime) / duration, 1);
             window.scrollTo(0, start + (end - start) * ease(progress));
             if (progress < 1) requestAnimationFrame(step);
         };
-
         requestAnimationFrame(step);
     };
 
@@ -97,8 +93,8 @@ const Navbar: React.FC<NavbarProps> = ({ scrollTo }) => {
                         ))}
                         
                         <button
-                            onClick={() => {
-                                slowScrollToVideoClub();
+                            onClick={(e) => {
+                                slowScrollToVideoClub(e);
                                 setIsMenuOpen(false);
                             }}
                             className="text-left px-6 py-3 hover:bg-red-50 text-[12px] font-black text-red-600 uppercase tracking-widest transition-colors border-b border-gray-50 flex items-center gap-2"

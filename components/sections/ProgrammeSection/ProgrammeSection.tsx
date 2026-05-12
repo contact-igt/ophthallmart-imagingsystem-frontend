@@ -1,5 +1,5 @@
 "use client";
-import { Video, Calendar, Clock, ArrowRight, PlayCircle, ExternalLink, ChevronLeft, ChevronRight, Zap } from 'lucide-react';
+import { Video, Calendar, Clock, ArrowRight, PlayCircle, ExternalLink, ChevronLeft, ChevronRight, Zap, CheckCircle } from 'lucide-react';
 import Image from 'next/image';
 import Slider from "react-slick";
 import { useEffect, useState } from 'react';
@@ -29,7 +29,7 @@ const episodes = [
         date: "16 May 2026",
         time: "08:00 PM IST",
         image: "/assets/programm/episode3.png",
-        link: "https://us06web.zoom.us/j/6425854376?pwd=aK9Dpp2U1l8aP3HyQR9kW5okvrplC1.1&omn=87665774836",
+        link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
         label: "Episode 03",
         type: "upcoming"
     }
@@ -56,6 +56,27 @@ const ProgrammeSection: React.FC = () => {
         if (windowWidth >= 1280) return 3;
         if (windowWidth >= 768) return 2;
         return 1;
+    };
+
+    const handleRegister = (e: React.MouseEvent) => {
+        e.preventDefault();
+        const target = document.getElementById('demo');
+        if (!target) return;
+        const start = window.scrollY;
+        const end = target.offsetTop - 100;
+        const duration = 1200;
+        let startTime: number | null = null;
+        const ease = (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        const step = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            window.scrollTo(0, start + (end - start) * ease(progress));
+            if (progress < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+        setTimeout(() => {
+            window.dispatchEvent(new CustomEvent('selectInterestedIn', { detail: 'Join Ophthall Video Club Session' }));
+        }, 100);
     };
 
     const currentSlidesToShow = getCurrentSlidesToShow();
@@ -185,20 +206,23 @@ const ProgrammeSection: React.FC = () => {
                                         </p>
                                     </div>
 
-                                    <div className="mt-auto">
+                                    <div className="flex-col md:flex-row items-center justify-center gap-3 mt-auto">
                                         <button
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' });
-                                                setTimeout(() => {
-                                                    window.dispatchEvent(new CustomEvent('selectInterestedIn', { detail: 'Join Ophthall Video Club Session' }));
-                                                }, 100);
-                                            }}
+                                            onClick={handleRegister}
                                             className="w-full inline-flex items-center justify-center gap-3 px-8 py-5 bg-ophthall-orange hover:bg-orange-600 text-white font-black uppercase tracking-widest rounded-2xl shadow-2xl transition-all duration-300 text-[13px] group/btn"
                                         >
-                                            <span>Register Now</span>
-                                            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                                            <span>Register</span>
+                                            <CheckCircle className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
                                         </button>
+                                        <a
+                                            href={upcomingEpisode.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-full inline-flex items-center justify-center gap-3 px-8 py-5 bg-[#00aeef] hover:bg-[#00a0e3] text-white font-black uppercase tracking-widest rounded-2xl shadow-2xl transition-all duration-300 text-[13px] group/btn"
+                                        >
+                                            <span>Join Now</span>
+                                            <PlayCircle className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                                        </a>
                                     </div>
                                 </div>
                             </div>
