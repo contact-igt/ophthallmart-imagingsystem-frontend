@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import { ArrowRight, Play, Pause } from 'lucide-react';
+import { ArrowRight, Play, Pause, Eye, Info } from 'lucide-react';
 import Image from 'next/image';
 
 const Hero: React.FC = () => {
@@ -36,13 +36,13 @@ const Hero: React.FC = () => {
         }
     };
 
-    const scrollToLiveSession = (e:any) => {
-            e.preventDefault();
-        const target = document.getElementById('video-club');
+    const scrollToClearView = (e?: any) => {
+        if (e && e.preventDefault) e.preventDefault();
+        const target = document.getElementById('clearview');
         if (!target) return;
         const start = window.scrollY;
         const end = target.offsetTop - 100;
-        const duration = 1200;
+        const duration = 800;
         let startTime: number | null = null;
         const ease = (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
         const step = (timestamp: number) => {
@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
                         </span>
                     </h1>
                     <p className="text-2xl text-gray-500 font-light leading-relaxed mb-12 max-w-xl">
-                        Convert your existing slit lamp or microscope into a{' '}
+                        Convert your existing Slit Lamp or microscope into a{' '}
                         <span className="text-ophthall-blue font-bold">High-Resolution</span> digital documentation system.
                     </p>
                     <div className="flex flex-wrap items-center gap-4">
@@ -85,14 +85,12 @@ const Hero: React.FC = () => {
                             <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-2 transition-transform" />
                         </button>
                         <button
-                            onClick={scrollToLiveSession}
-                            className="relative flex items-center gap-2 border-2 border-red-500 text-red-600 px-8 py-5 font-bold rounded-sm hover:bg-red-600 hover:text-white transition-all group"
+                            onClick={scrollToClearView}
+                            aria-label="More details about ClearView"
+                            className="flex items-center gap-3 border-2 border-ophthall-blue text-ophthall-blue px-8 py-5 font-bold rounded-sm hover:bg-ophthall-blue hover:text-white transition-all group"
                         >
-                            <span className="relative flex h-2.5 w-2.5">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-600 group-hover:bg-white"></span>
-                            </span>
-                            Join Ophthall Video Club Session
+                            <Info className="w-5 h-5" />
+                            More Details
                         </button>
                     </div>
                 </div>
