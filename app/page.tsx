@@ -66,11 +66,11 @@ export default function Home() {
         ]
     };
     const clearerViewInstallationVideo: Product = {
-        name: 'Installation Guide',
+        name: 'What our patients say',
         gallery: [
             {
                 type: 'video',
-                src: "https://www.youtube.com/embed/ZWznXHhEnyg?si=pb69-cECMl8uRRRu"
+                src: "https://www.youtube.com/embed/TKCsWCBUVVM"
             }
         ]
     };

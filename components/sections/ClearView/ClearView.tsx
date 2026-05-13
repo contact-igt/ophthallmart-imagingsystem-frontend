@@ -68,7 +68,8 @@ const ClearView: React.FC<ClearViewProps> = ({ onOpenGallery, onInstallationVide
                             onClick={onInstallationVideos}
                             className="flex items-center gap-3 px-6 py-4 font-black uppercase text-[11px] tracking-widest rounded transition-all border border-ophthall-blue text-ophthall-blue hover:bg-blue-50"
                         >
-                            <PlayCircle className="w-4 h-4" /> Installation Videos
+                            <PlayCircle className="w-4 h-4" />
+                            What our patients say
                         </button>
                         {/* <button
                             onClick={onOpenGalleryImages}
