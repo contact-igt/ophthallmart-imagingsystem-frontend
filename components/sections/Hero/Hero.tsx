@@ -98,9 +98,7 @@ const Hero: React.FC = () => {
                 </div>
                 
                 <div className="flex flex-col gap-6">
-                    {/* Video Section */}
-                    <div className=" lg:hidden relative group cursor-pointer">
-                        {/* <div className="absolute inset-0 bg-blue-50 rounded-full blur-3xl -z-10 opacity-50"></div> */}
+                    {/* <div className=" lg:hidden relative group cursor-pointer">
                         <div className="overflow-hidden rounded-3xl border-4 border-white bg-black shadow-2xl">
                             <video
                                 ref={videoRef}
@@ -111,7 +109,6 @@ const Hero: React.FC = () => {
                                 onPause={() => setIsPlaying(false)}
                                 poster="/assets/thumbnail.jpg"
                             />
-                            {/* Play/Pause Overlay */}
                             <div
                                 onClick={handleVideoClick}
                                 className="absolute inset-0 bg-transparent opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-pointer"
@@ -125,7 +122,7 @@ const Hero: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Product Image Section */}
                     <div className="relative group cursor-pointer">

@@ -87,7 +87,7 @@ const HeroInstagram: React.FC<Props> = ({
     return (
         <section 
             id="hero-instagram" 
-            className="hidden md:block py-24 overflow-hidden relative"
+            className="block py-24 overflow-hidden relative"
             style={{
                 backgroundImage: 'url(/assets/eyebanner.png)',
                 backgroundSize: 'cover',
@@ -106,7 +106,7 @@ const HeroInstagram: React.FC<Props> = ({
                         <span className="text-[9px] font-black uppercase tracking-[0.3em]">Surgical Video Discussions</span>
                     </div>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-tighter leading-tight mb-4">
-                        Join <span className="font-bold">Ophthall Video Club</span>
+                        Join <span className="font-bold">Ophthall Surgical Club</span>
                     </h2>
                     <p className="text-lg text-white/90 max-w-2xl mx-auto">
                         Explore surgical video discussions, gain insights from expert surgeons, and connect with ophthalmologists worldwide.
@@ -114,7 +114,7 @@ const HeroInstagram: React.FC<Props> = ({
                 </div>
 
                 {/* Video and Content Grid */}
-                <div className="flex justify-start ml-10">
+                <div className="flex justify-start lg:ml-10">
                     <div className="w-full max-w-[480px]">
                         {/* Video Container */}
                         <div className="flex flex-col gap-6">
@@ -134,7 +134,7 @@ const HeroInstagram: React.FC<Props> = ({
                                     {/* Play/Pause Overlay */}
                                     <div
                                         onClick={handleVideoClick}
-                                        className={`absolute inset-0 bg-black/20  transition-opacity duration-300 flex items-center justify-center cursor-pointer ${isPlaying  ? 'opacity-0' : 'opacity-100'} group-hover:opacity-100`}
+                                        className={`absolute inset-0 bg-[#001]/1  transition-opacity duration-300 flex items-center justify-center cursor-pointer ${isPlaying  ? 'opacity-0' : 'opacity-100'} group-hover:opacity-100`}
                                     >
                                         <div className="bg-slate-950/95 backdrop-blur-md rounded-full p-4 transform scale-90 group-hover:scale-100 transition-all duration-300 border border-white/30">
                                             {isPlaying ? (
