@@ -8,6 +8,7 @@ export interface GalleryItem {
 export interface Product {
     name: string;
     gallery: GalleryItem[];
+    // thumbnail: string;
 }
 
 export interface NavbarProps {
