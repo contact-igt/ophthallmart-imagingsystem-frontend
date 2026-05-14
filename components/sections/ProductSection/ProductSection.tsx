@@ -69,7 +69,7 @@ const ProductSection: React.FC<ProductSectionProps> = ({
                             </button>
                         )}
 
-                        {onInstallationVideos && (
+                        {/* {onInstallationVideos && (
                             <button
                                 onClick={onInstallationVideos}
                                 className={`flex items-center gap-3 px-6 py-4 font-black uppercase text-[11px] tracking-widest rounded transition-all border ${dark
@@ -79,9 +79,9 @@ const ProductSection: React.FC<ProductSectionProps> = ({
                             >
                                 <PlayCircle className="w-4 h-4" /> Installation Videos
                             </button>
-                        )}
+                        )} */}
 
-                        <button
+                        {/* <button
                             onClick={() => onOpenGallery({ name, gallery })}
                             className={`flex items-center gap-3 px-10 py-4 font-black uppercase text-[11px] tracking-widest rounded transition-all border-2 ${dark
                                 ? 'border-white text-white hover:bg-white hover:text-ophthall-blue'
@@ -89,7 +89,7 @@ const ProductSection: React.FC<ProductSectionProps> = ({
                                 }`}
                         >
                             <Camera className="w-5 h-5" /> {galleryBtnLabel}
-                        </button>
+                        </button> */}
                     </div>
                 </div>
 

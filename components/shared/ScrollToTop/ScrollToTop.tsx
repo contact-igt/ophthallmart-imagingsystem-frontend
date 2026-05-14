@@ -2,7 +2,21 @@ import { ArrowUp } from "lucide-react"
 
 export const ScrollToTop: React.FC<any> = () => {
     const handleScrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const start = window.scrollY;
+        const end = 0;
+        const duration = 3800;
+        let startTime: number | null = null;
+
+        const ease = (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
+        const step = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            window.scrollTo(0, start + (end - start) * ease(progress));
+            if (progress < 1) requestAnimationFrame(step);
+        };
+
+        requestAnimationFrame(step);
     };
 
     return (

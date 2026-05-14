@@ -25,7 +25,7 @@ export const LiveClubFAB: React.FC = () => {
     };
 
     return (
-        <div className="fixed bottom-24 md:bottom-28 right-6 md:right-12 z-50">
+        <div className="fixed bottom-[160px] md:bottom-[185px] right-6 md:right-12 z-50">
             <button
                 onClick={handleClick}
                 className="relative bg-red-600 hover:bg-red-700 text-white p-2 md:p-3 rounded-full shadow-lg transition-colors"

@@ -58,7 +58,7 @@ const HeroInstagram: React.FC<Props> = ({
         if (!target) return;
         const start = window.scrollY;
         const end = target.offsetTop - 100;
-        const duration = 1200;
+        const duration = 4800;
         let startTime: number | null = null;
         const ease = (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
         const step = (timestamp: number) => {
@@ -79,7 +79,7 @@ const HeroInstagram: React.FC<Props> = ({
         if (!target) return;
         const start = window.scrollY;
         const end = target.offsetTop - 100;
-        const duration = 1200;
+        const duration = 4800;
         let startTime: number | null = null;
         const ease = (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
         const step = (timestamp: number) => {

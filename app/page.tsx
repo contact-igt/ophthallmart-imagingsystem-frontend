@@ -22,6 +22,7 @@ import { Popup } from '@/components/shared/Popup/Popup';
 import { SurgeryVideoDetails } from '@/components/shared/SurgeryVideoDetails/surgeryVideoDetails';
 import { ScrollToTop } from '@/components/shared/ScrollToTop/ScrollToTop';
 import { LiveClubFAB } from '@/components/shared/LiveClubFAB/LiveClubFAB';
+import { WhatsAppFAB } from '@/components/shared/WhatsAppFAB/WhatsAppFAB';
 
 export default function Home() {
     useUTMSource();
@@ -66,7 +67,7 @@ export default function Home() {
         ]
     };
     const clearerViewInstallationVideo: Product = {
-        name: 'What our patients say',
+        name: 'What our customer say',
         gallery: [
             {
                 type: 'video',
@@ -180,6 +181,7 @@ export default function Home() {
             </Popup> */}
             <ScrollToTop />
             <LiveClubFAB />
+            <WhatsAppFAB />
         </div>
     );
 };
