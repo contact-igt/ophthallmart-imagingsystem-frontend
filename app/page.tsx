@@ -48,21 +48,38 @@ export default function Home() {
     ];
 
     const vidInstallationVideo: Product = {
-        name: 'Installation Guide',
+        name: 'Video Gallery',
         gallery: [
             {
                 type: 'video',
-                src: "https://www.youtube.com/embed/wPhQDWyiJN8?si=0LZ4GHlWbDxj7RuN"
+                src: "https://www.youtube.com/embed/s8bbWNPZtrM?si=QjqL6mmGBpisJx1R",
+                thumb: '/assets/ophthallvid1.jpg'
+            },
+            {
+                type: 'video',
+                src: "https://www.youtube.com/embed/sEM7akfqSxs?si=_UlZqR_8QX3qdcL2",
+                thumb: '/assets/ophthallvid2.jpg'
+            },
+              {
+                type: 'video',
+                src: "https://www.youtube.com/embed/TweGeTGjA3A?si=GiQDbPWZGqFfycBs",
+                thumb: '/assets/ophthallvid3.jpg'
             }
         ]
     };
 
     const vidProInstallationVideo: Product = {
-        name: 'Installation Guide',
+        name: 'Video Gallery',
         gallery: [
+                {
+                type: 'video',
+                src: "https://www.youtube.com/embed/0vXTsaI3Z4A?si=DmY9AdUkdKZ1R0HI",
+                thumb: '/assets/ophthallvidpro1.jpg'
+            },
             {
                 type: 'video',
-                src: "https://www.youtube.com/embed/ZWznXHhEnyg?si=pb69-cECMl8uRRRu"
+                src: "https://www.youtube.com/embed/cA4MZyq6Ca4?si=c_MQb60JrrJbyOLf",
+                thumb: '/assets/ophthallvidpro2.jpg'
             }
         ]
     };

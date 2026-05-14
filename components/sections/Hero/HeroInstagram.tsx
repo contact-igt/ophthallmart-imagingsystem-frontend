@@ -123,9 +123,9 @@ const HeroInstagram: React.FC<Props> = ({
                 </div>
 
                 {/* Poster (left) + Video (right) Grid with equal heights */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-stretch lg:ml-20">
+                <div className="flex flex-col lg:flex-row gap-12 lg:gap-5 items-center justify-center">
                     {/* Left: Programme-style Upcoming Session Card */}
-                    <div className="h-[480px] sm:h-[560px] md:h-[640px] flex items-center md:items-start justify-center">
+                    <div className="h-[480px] sm:h-[560px] md:h-[640px] aspect-[12/16] md:aspect-[16/16] flex items-center md:items-start justify-center">
                         <div className="group rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-500 flex flex-col bg-ophthall-blue relative w-full h-full">
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ophthall-blue/10 to-ophthall-blue/90 z-0"></div>
 
@@ -196,9 +196,9 @@ const HeroInstagram: React.FC<Props> = ({
                     </div>
 
                     {/* Right: Instagram aspect-ratio video centered inside same-height column */}
-                    <div className="h-[480px] sm:h-[560px] md:h-[640px] flex items-center md:items-start justify-center">
+                    <div className="flex items-center md:items-start justify-center h-[480px] sm:h-[560px] md:h-[640px]">
                         <div className="relative w-full h-full flex items-center justify-center lg:justify-start lg:pl-10">
-                            <div className="relative w-auto h-full max-w-[600px] bg-black rounded-3xl overflow-hidden shadow-2xl group">
+                            <div className="relative w-auto h-full  bg-black rounded-3xl overflow-hidden shadow-2xl group">
                                 {hasVideo ? (
                                     <>
                                         <video
@@ -238,29 +238,29 @@ const HeroInstagram: React.FC<Props> = ({
                 </div>
 
                 {/* Shared CTA Buttons below both poster and video */}
-                <div className="mt-16 max-w-[980px] lg:max-w-[750px] mx-auto flex flex-col sm:flex-row gap-3 justify-center">
+                <div className="mt-16 max-w-[1200px] mx-auto flex flex-col sm:flex-row gap-4 justify-center items-center md:px-4">
                     <button
                         onClick={handleRegister}
-                        className="flex-1 inline-flex items-center justify-center gap-3 px-6 py-5 bg-ophthall-orange hover:bg-orange-600 text-white font-black uppercase tracking-widest rounded-2xl shadow-lg transition-all duration-300 text-sm"
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-4 sm:py-5 bg-ophthall-orange hover:bg-orange-600 text-white font-black uppercase tracking-wide rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm whitespace-nowrap hover:scale-105"
                     >
-                        Register Now
-                        <CheckCircle className="w-4 h-4" />
+                        Ophthall Surgical Club Register Now
+                        <CheckCircle className="w-5 h-5 flex-shrink-0" />
                     </button>
                     <a
                         href="https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 inline-flex items-center justify-center gap-3 px-6 py-5 bg-[#00aeef] hover:bg-[#00a0e3] text-white font-black uppercase tracking-widest rounded-2xl shadow-lg transition-all duration-300 text-sm"
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-4 sm:py-5 bg-[#00aeef] hover:bg-[#00a0e3] text-white font-black uppercase tracking-wide rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm whitespace-nowrap hover:scale-105"
                     >
-                        Join Now
-                        <Play className="w-4 h-4" />
+                        Upcoming Session Join Now
+                        <Play className="w-5 h-5 flex-shrink-0" />
                     </a>
                     <button
                         onClick={handleMoreDetails}
-                        className="flex-1 inline-flex items-center justify-center gap-3 px-6 py-5 bg-ophthall-blue hover:bg-ophthall-blue-dark text-white font-black uppercase tracking-widest rounded-2xl shadow-lg transition-all duration-300 text-sm"
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-4 sm:py-5 bg-ophthall-blue hover:bg-ophthall-blue-dark text-white font-black uppercase tracking-wide rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm whitespace-nowrap hover:scale-105"
                     >
                         More Details
-                        <Info className="w-4 h-4" />
+                        <Info className="w-5 h-5 flex-shrink-0" />
                     </button>
                 </div>
             </div>
