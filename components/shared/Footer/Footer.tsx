@@ -79,13 +79,13 @@ const Footer: React.FC = () => {
                     <div className="space-y-4">
                         <div>
                             <p className="text-sm text-gray-600 mb-1">Helpline:</p>
-                            <a href="tel:+919176565851" className="text-ophthall-blue hover:text-ophthall-orange transition-colors font-semibold">
+                            <a href="tel:+91 8754517944" className="text-ophthall-blue hover:text-ophthall-orange transition-colors font-semibold">
                                 +91 87545 17944
                             </a>
                         </div>
                         <div>
                             <p className="text-sm text-gray-600 mb-1">OIS Enquiries:</p>
-                            <a href="tel:+919154517944" className="text-ophthall-blue hover:text-ophthall-orange transition-colors font-semibold">
+                            <a href="tel:+919176709051" className="text-ophthall-blue hover:text-ophthall-orange transition-colors font-semibold">
                                 OIS: +91 91767 09051 / +91 91767 02051
                             </a>
                         </div>
