@@ -53,6 +53,7 @@ const ProgrammeSection: React.FC = () => {
 
     useEffect(() => {
         setHasMounted(true);
+        setWindowWidth(window.innerWidth);
         const handleResize = () => setWindowWidth(window.innerWidth);
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
@@ -61,9 +62,8 @@ const ProgrammeSection: React.FC = () => {
     const upcomingEpisode = episodes.find(e => e.type === 'upcoming');
     const previousEpisodes = episodes.filter(e => e.type === 'previous');
 
-    // Get current slidesToShow based on window width
     const getCurrentSlidesToShow = () => {
-        if (windowWidth >= 1280) return 3;
+        if (windowWidth >= 1024) return 3;
         if (windowWidth >= 768) return 2;
         return 1;
     };
@@ -119,7 +119,7 @@ const ProgrammeSection: React.FC = () => {
         afterChange: (index: number) => setCurrentSlide(index),
         responsive: [
             {
-                breakpoint: 1279,
+                breakpoint: 1023,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
