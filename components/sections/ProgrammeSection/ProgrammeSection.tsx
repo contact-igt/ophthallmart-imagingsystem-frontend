@@ -35,12 +35,12 @@ const episodes = [
     },
     {
         id: "04",
-        title: "Phaco Emulsification in Small Pupil using a B Hex Ring",
-        date: "16 May 2026",
+        title: "CCC in Difficult Situations",
+        date: "29 May 2026",
         time: "08:00 PM IST",
-        image: "/assets/programm/episode3.png",
+        image: "/assets/programm/episode4.png",
         link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
-        label: "Episode 03",
+        label: "Episode 04",
         type: "upcoming"
     }
 ];
@@ -161,7 +161,7 @@ const ProgrammeSection: React.FC = () => {
                 </div>
 
                 {/* Upcoming Session Section */}
-                {/* <div className="mb-20">
+                <div className="mb-20">
                     <div className="text-center mb-8">
                         <div className="flex items-center justify-center gap-2">
                             <Zap className="w-6 h-6 text-ophthall-orange" />
@@ -214,7 +214,7 @@ const ProgrammeSection: React.FC = () => {
                                         </p>
                                     </div>
 
-                                    <div className="flex flex-col md:flex-row items-center justify-center gap-3 mt-auto">
+                                    {/* <div className="flex flex-col md:flex-row items-center justify-center gap-3 mt-auto">
                                         <button
                                             onClick={handleRegister}
                                             className="w-full inline-flex items-center justify-center gap-3 px-8 py-5 bg-ophthall-orange hover:bg-orange-600 text-white font-black uppercase tracking-widest rounded-2xl shadow-2xl transition-all duration-300 text-[13px] group/btn"
@@ -231,12 +231,30 @@ const ProgrammeSection: React.FC = () => {
                                             <span>Join Now</span>
                                             <PlayCircle className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                                         </a>
+                                    </div> */}
+                                     <div className="flex flex-col md:flex-row items-center justify-center gap-3 mt-auto">
+                                        <button
+                                            onClick={handleRegister}
+                                            className="w-full inline-flex items-center justify-center gap-3 px-8 py-5 bg-ophthall-orange hover:bg-orange-600 text-white font-black uppercase tracking-widest rounded-2xl shadow-2xl transition-all duration-300 text-[13px] group/btn"
+                                        >
+                                            <span>Register</span>
+                                            <CheckCircle className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
+                                        </button>
+                                        {/* <a
+                                            href={upcomingEpisode.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-full inline-flex items-center justify-center gap-3 px-8 py-5 bg-[#00aeef] hover:bg-[#00a0e3] text-white font-black uppercase tracking-widest rounded-2xl shadow-2xl transition-all duration-300 text-[13px] group/btn"
+                                        >
+                                            <span>Join Now</span>
+                                            <PlayCircle className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                                        </a> */}
                                     </div>
                                 </div>
                             </div>
                         )}
                     </div>
-                </div> */}
+                </div>
 
                 {/* Previous Sessions Section */}
                 <div>

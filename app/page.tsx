@@ -78,11 +78,6 @@ export default function Home() {
             },
             {
                 type: 'video',
-                src: "https://www.youtube.com/embed/znpSqBBNjTY?si=crognlJQByJ77TKo",
-                thumb: '/assets/ophthallvidpro1.jpg'
-            },
-            {
-                type: 'video',
                 src: "https://www.youtube.com/embed/cA4MZyq6Ca4?si=c_MQb60JrrJbyOLf",
                 thumb: '/assets/ophthallvidpro2.jpg'
             }
@@ -126,7 +121,7 @@ export default function Home() {
 
             <main>
                 <Hero />
-                {/* <HeroInstagram /> */}
+                <HeroInstagram />
                 <ClearView
                     onOpenGallery={setGalleryProduct}
                     onInstallationVideos={() => openInstallationVideo("clearer-view")}
