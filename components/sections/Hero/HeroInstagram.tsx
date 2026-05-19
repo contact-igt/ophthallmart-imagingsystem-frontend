@@ -127,7 +127,7 @@ const HeroInstagram: React.FC<Props> = ({
                 {/* Poster (left) + Video (right) Grid with equal heights */}
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-5 items-center justify-center">
                     {/* Left: Programme-style Upcoming Session Card */}
-                    <div className="w-full max-w-2xl mx-auto lg:max-w-none lg:h-[730px] aspect-auto lg:aspect-[16/14] flex items-center justify-center">
+                    <div className="w-full max-w-4xl mx-auto lg:h-[780px] aspect-auto lg:aspect-[16/14] flex items-center justify-center">
                         <div className="group rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-500 flex flex-col bg-ophthall-blue relative w-full h-auto lg:h-full">
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ophthall-blue/10 to-ophthall-blue/90 z-0"></div>
 
