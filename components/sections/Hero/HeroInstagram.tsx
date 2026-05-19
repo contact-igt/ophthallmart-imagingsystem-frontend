@@ -12,13 +12,15 @@ const HeroInstagram: React.FC<Props> = ({
     videoSrc = '/assets/video.mp4',
 }) => {
     const upcomingEpisode = {
-        label: 'Episode 03',
-        title: 'Phaco Emulsification in Small Pupil Using a B Hex Ring',
-        date: '16 May 2026',
-        time: '08:00 PM IST',
-        image: '/assets/programm/episode3.png',
-        link: 'https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA'
-    };
+        id: "04",
+        title: "CCC in Difficult Situations",
+        date: "29 May 2026",
+        time: "08:00 PM IST",
+        image: "/assets/programm/episode4.png",
+        link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
+        label: "Episode 04",
+        type: "upcoming"
+    }
     const [isPlaying, setIsPlaying] = useState(false);
     const [hasVideo, setHasVideo] = useState(false);
     const [mounted, setMounted] = useState(false);
@@ -125,12 +127,12 @@ const HeroInstagram: React.FC<Props> = ({
                 {/* Poster (left) + Video (right) Grid with equal heights */}
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-5 items-center justify-center">
                     {/* Left: Programme-style Upcoming Session Card */}
-                    <div className="h-[480px] sm:h-[560px] md:h-[640px] aspect-[12/16] md:aspect-[16/16] flex items-center md:items-start justify-center">
-                        <div className="group rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-500 flex flex-col bg-ophthall-blue relative w-full h-full">
+                    <div className="w-full max-w-2xl mx-auto lg:max-w-none lg:h-[730px] aspect-auto lg:aspect-[16/14] flex items-center justify-center">
+                        <div className="group rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-500 flex flex-col bg-ophthall-blue relative w-full h-auto lg:h-full">
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ophthall-blue/10 to-ophthall-blue/90 z-0"></div>
 
                             {/* Image Area */}
-                            <div className="relative w-full aspect-[9/16] overflow-hidden">
+                            <div className="relative w-full aspect-video lg:aspect-auto lg:flex-1 overflow-hidden">
                                 <Image
                                     src={upcomingEpisode.image}
                                     alt={upcomingEpisode.title}
@@ -141,8 +143,8 @@ const HeroInstagram: React.FC<Props> = ({
                             </div>
 
                             {/* Content Area */}
-                            <div className="p-6 md:p-8 flex flex-col relative z-10 bg-gradient-to-t from-ophthall-blue via-ophthall-blue/95 to-transparent">
-                                <div className="absolute top-4 left-6 inline-flex items-center gap-1.5 bg-ophthall-orange/20 text-ophthall-orange px-2.5 py-1.5 rounded-md border border-ophthall-orange/30 w-fit">
+                            <div className="p-6 md:p-6 md:pt-8 md:pb-6 flex flex-col relative z-10 bg-gradient-to-t from-ophthall-blue via-ophthall-blue/95 to-transparent">
+                                <div className="absolute top-5 left-6 inline-flex items-center gap-1.5 bg-ophthall-orange/20 text-ophthall-orange px-2.5 py-1.5 rounded-md border border-ophthall-orange/30 w-fit">
                                     <span className="w-1 h-1 bg-ophthall-orange rounded-full animate-pulse"></span>
                                     <span className="text-[8px] font-black uppercase tracking-widest">Upcoming Session</span>
                                 </div>
@@ -157,7 +159,7 @@ const HeroInstagram: React.FC<Props> = ({
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col gap-6 mb-8">
+                                <div className="flex flex-col gap-6 mb-5">
                                     <div className="flex flex-wrap items-center gap-3">
                                         <div className="flex items-center gap-2.5 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-white/10">
                                                 <Calendar className="w-4 h-4 text-ophthall-orange" />
@@ -196,7 +198,7 @@ const HeroInstagram: React.FC<Props> = ({
                     </div>
 
                     {/* Right: Instagram aspect-ratio video centered inside same-height column */}
-                    <div className="flex items-center md:items-start justify-center h-[480px] sm:h-[560px] md:h-[640px]">
+                    {/* <div className="flex items-center md:items-start justify-center h-[480px] sm:h-[560px] md:h-[640px]">
                         <div className="relative w-full h-full flex items-center justify-center lg:justify-start lg:pl-10">
                             <div className="relative w-auto h-full  bg-black rounded-3xl overflow-hidden shadow-2xl group">
                                 {hasVideo ? (
@@ -234,7 +236,7 @@ const HeroInstagram: React.FC<Props> = ({
                                 )}
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* Shared CTA Buttons below both poster and video */}
@@ -246,7 +248,7 @@ const HeroInstagram: React.FC<Props> = ({
                         Ophthall Surgical Club Register Now
                         <CheckCircle className="w-5 h-5 flex-shrink-0" />
                     </button>
-                    <a
+                    {/* <a
                         href="https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -254,7 +256,7 @@ const HeroInstagram: React.FC<Props> = ({
                     >
                         Upcoming Session Join Now
                         <Play className="w-5 h-5 flex-shrink-0" />
-                    </a>
+                    </a> */}
                     <button
                         onClick={handleMoreDetails}
                         className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-4 sm:py-5 bg-ophthall-blue hover:bg-ophthall-blue-dark text-white font-black uppercase tracking-wide rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm whitespace-nowrap hover:scale-105"
