@@ -29,6 +29,16 @@ const episodes = [
         date: "16 May 2026",
         time: "08:00 PM IST",
         image: "/assets/programm/episode3.png",
+        link: "https://www.youtube.com/live/a8SlQuddt1I",
+        label: "Episode 03",
+        type: "previous"
+    },
+    {
+        id: "04",
+        title: "Phaco Emulsification in Small Pupil using a B Hex Ring",
+        date: "16 May 2026",
+        time: "08:00 PM IST",
+        image: "/assets/programm/episode3.png",
         link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
         label: "Episode 03",
         type: "upcoming"
@@ -80,6 +90,9 @@ const ProgrammeSection: React.FC = () => {
     };
 
     const currentSlidesToShow = getCurrentSlidesToShow();
+    console.log(currentSlidesToShow, '====');
+    console.log(currentSlide, "==");
+    console.log(previousEpisodes.length, "length");
 
     // Logic for disabling left button
     const isLeftDisabled = () => {
@@ -88,8 +101,7 @@ const ProgrammeSection: React.FC = () => {
 
     // Logic for disabling right button
     const isRightDisabled = () => {
-        const maxSlide = previousEpisodes.length - currentSlidesToShow;
-        return previousEpisodes.length <= currentSlidesToShow || currentSlide >= maxSlide;
+        return previousEpisodes.length <= currentSlidesToShow || currentSlide >= previousEpisodes.length - currentSlidesToShow;
     };
 
     const settings = {
@@ -149,7 +161,7 @@ const ProgrammeSection: React.FC = () => {
                 </div>
 
                 {/* Upcoming Session Section */}
-                <div className="mb-20">
+                {/* <div className="mb-20">
                     <div className="text-center mb-8">
                         <div className="flex items-center justify-center gap-2">
                             <Zap className="w-6 h-6 text-ophthall-orange" />
@@ -161,8 +173,6 @@ const ProgrammeSection: React.FC = () => {
                         {upcomingEpisode && (
                             <div className="group rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-500 flex flex-col bg-ophthall-blue relative">
                                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ophthall-blue/10 to-ophthall-blue/90 z-0"></div>
-
-                                {/* Image Area (More Horizontal) */}
                                 <div className="relative w-full aspect-[23.1/13] overflow-hidden">
                                     <Image
                                         src={upcomingEpisode.image}
@@ -173,9 +183,7 @@ const ProgrammeSection: React.FC = () => {
                                     />
                                 </div>
 
-                                {/* Content Area (Compact) */}
                                 <div className="p-7 md:p-8 flex flex-col relative z-10 bg-gradient-to-t from-ophthall-blue via-ophthall-blue/95 to-transparent">
-                                    {/* Upcoming Label */}
                                     <div className="absolute top-5 left-8 inline-flex items-center gap-1.5 bg-ophthall-orange/20 text-ophthall-orange px-2.5 py-1.5 rounded-md border border-ophthall-orange/30 w-fit">
                                         <span className="w-1 h-1 bg-ophthall-orange rounded-full animate-pulse"></span>
                                         <span className="text-[8px] font-black uppercase tracking-widest">Upcoming Session</span>
@@ -228,7 +236,7 @@ const ProgrammeSection: React.FC = () => {
                             </div>
                         )}
                     </div>
-                </div>
+                </div> */}
 
                 {/* Previous Sessions Section */}
                 <div>
