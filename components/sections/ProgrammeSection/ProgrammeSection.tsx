@@ -39,8 +39,18 @@ const episodes = [
         date: "29 May 2026",
         time: "08:00 PM IST",
         image: "/assets/programm/episode4.png",
-        link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
+        link:"https://www.youtube.com/live/NNi363JX24g?si=AjPYJW2vhnJKrR5J",
         label: "Episode 04",
+        type: "previous"
+    },
+      {
+        id: "05",
+        title: "Nucleus Dis - Assembly Techniques",
+        date: "12 June 2026",
+        time: "08:00 PM- 10:00 PM  IST",
+        image: "/assets/programm/episode5.png",
+        // link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
+        label: "Episode 05",
         type: "upcoming"
     }
 ];
@@ -96,24 +106,24 @@ const ProgrammeSection: React.FC = () => {
 
     // Logic for disabling left button
     const isLeftDisabled = () => {
-        return previousEpisodes.length <= currentSlidesToShow || currentSlide === 0;
+        return previousEpisodes.length <= currentSlidesToShow;
     };
 
     // Logic for disabling right button
     const isRightDisabled = () => {
-        return previousEpisodes.length <= currentSlidesToShow || currentSlide >= previousEpisodes.length - currentSlidesToShow;
+        return previousEpisodes.length <= currentSlidesToShow;
     };
 
     const settings = {
         dots: true,
-        infinite: false,
+        infinite: true,
         speed: 800,
         slidesToShow: 3,
         slidesToScroll: 1,
         initialSlide: 0,
         arrows: false,
-        autoplay: false,
-        autoplaySpeed: 5000,
+        autoplay: true,
+        autoplaySpeed: 2000,
         pauseOnHover: true,
         cssEase: "cubic-bezier(0.87, 0, 0.13, 1)",
         afterChange: (index: number) => setCurrentSlide(index),
@@ -257,7 +267,7 @@ const ProgrammeSection: React.FC = () => {
                 </div>
 
                 {/* Previous Sessions Section */}
-                <div>
+                <div className="overflow-hidden">
                     {/* Previous Sessions Header with Navigation */}
                     <div className={`flex items-center ${previousEpisodes.length > currentSlidesToShow ? 'justify-between' : 'justify-center'} mb-8 border-b border-slate-200 pb-4 relative`}>
                         <div className="flex items-center gap-3">

@@ -11,14 +11,14 @@ interface Props {
 const HeroInstagram: React.FC<Props> = ({
     videoSrc = '/assets/video.mp4',
 }) => {
-    const upcomingEpisode = {
-        id: "04",
-        title: "CCC in Difficult Situations",
-        date: "29 May 2026",
-        time: "08:00 PM IST",
-        image: "/assets/programm/episode4.png",
-        link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
-        label: "Episode 04",
+    const upcomingEpisode =     {
+        id: "05",
+        title: "Nucleus Dis - Assembly Techniques",
+        date: "12 June 2026",
+        time: "08:00 PM- 10:00 PM  IST",
+        image: "/assets/programm/episode5.png",
+        // link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
+        label: "Episode 05",
         type: "upcoming"
     }
     const [isPlaying, setIsPlaying] = useState(false);
