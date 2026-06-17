@@ -49,8 +49,19 @@ const episodes = [
         date: "12 June 2026",
         time: "08:00 PM- 10:00 PM  IST",
         image: "/assets/programm/episode5.png",
+        link: "https://youtube.com/live/RxaYgLMsRk8",
         // link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
         label: "Episode 05",
+        type: "previous"
+    },
+          {
+        id: "06",
+        title: "Phaco in Mature & Hypermature Cataracts: From White to Bright",
+        date: "26 June 2026",
+        time: "08:00 PM- 10:00 PM  IST",
+        image: "/assets/programm/episode6.png",
+        // link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
+        label: "Episode 06",
         type: "upcoming"
     }
 ];
