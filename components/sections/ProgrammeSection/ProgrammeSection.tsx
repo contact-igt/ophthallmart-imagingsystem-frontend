@@ -60,9 +60,10 @@ const episodes = [
         date: "26 June 2026",
         time: "08:00 PM- 10:00 PM  IST",
         image: "/assets/programm/episode6.png",
+        link: "https://youtube.com/live/Tc4TtJUNCbQ",
         // link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
         label: "Episode 06",
-        type: "upcoming"
+        type: "previous"
     }
 ];
 
@@ -182,7 +183,7 @@ const ProgrammeSection: React.FC = () => {
                 </div>
 
                 {/* Upcoming Session Section */}
-                <div className="mb-20">
+                {upcomingEpisode && <div className="mb-20">
                     <div className="text-center mb-8">
                         <div className="flex items-center justify-center gap-2">
                             <Zap className="w-6 h-6 text-ophthall-orange" />
@@ -275,7 +276,7 @@ const ProgrammeSection: React.FC = () => {
                             </div>
                         )}
                     </div>
-                </div>
+                </div>}
 
                 {/* Previous Sessions Section */}
                 <div className="overflow-hidden">
