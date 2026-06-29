@@ -121,7 +121,7 @@ export default function Home() {
 
             <main>
                 <Hero />
-                <HeroInstagram />
+                {/* <HeroInstagram /> */}
                 <ClearView
                     onOpenGallery={setGalleryProduct}
                     onInstallationVideos={() => openInstallationVideo("clearer-view")}

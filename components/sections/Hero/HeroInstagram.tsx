@@ -17,7 +17,7 @@ const HeroInstagram: React.FC<Props> = ({
         date: "26 June 2026",
         time: "08:00 PM- 10:00 PM  IST",
         image: "/assets/programm/episode6.png",
-        // link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
+        link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
         label: "Episode 06",
         type: "upcoming"
     }
