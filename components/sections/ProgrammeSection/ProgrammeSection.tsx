@@ -64,6 +64,17 @@ const episodes = [
         // link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
         label: "Episode 06",
         type: "previous"
+    },
+     {
+        id: "07",
+        title: "PCR Management and 4D Phaco For Cataract Surgery",
+        date: "10 July 2026",
+        time: "08:00 PM- 10:00 PM  IST",
+        image: "/assets/programm/episode7.png",
+        // link: "https://youtube.com/live/Tc4TtJUNCbQ",
+        // link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
+        label: "Episode 07",
+        type: "upcoming"
     }
 ];
 
