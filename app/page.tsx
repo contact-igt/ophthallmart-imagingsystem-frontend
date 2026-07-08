@@ -60,7 +60,7 @@ export default function Home() {
                 src: "https://www.youtube.com/embed/sEM7akfqSxs?si=_UlZqR_8QX3qdcL2",
                 thumb: '/assets/ophthallvid2.jpg'
             },
-              {
+            {
                 type: 'video',
                 src: "https://www.youtube.com/embed/TweGeTGjA3A?si=GiQDbPWZGqFfycBs",
                 thumb: '/assets/ophthallvid3.jpg'
