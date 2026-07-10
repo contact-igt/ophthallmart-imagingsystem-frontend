@@ -70,7 +70,7 @@ const episodes = [
         title: "PCR Management and 4D Phaco For Cataract Surgery",
         date: "10 July 2026",
         time: "08:00 PM- 09:00 PM  IST",
-        image: "/assets/programm/episode7_new.png",
+        image: "/assets/programm/episode7_updated.png",
         // link: "https://youtube.com/live/Tc4TtJUNCbQ",
         // link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
         label: "Episode 07",

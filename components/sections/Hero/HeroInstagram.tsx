@@ -11,12 +11,12 @@ interface Props {
 const HeroInstagram: React.FC<Props> = ({
     videoSrc = '/assets/video.mp4',
 }) => {
-    const upcomingEpisode =  {
+    const upcomingEpisode = {
         id: "07",
         title: "PCR Management and 4D Phaco For Cataract Surgery",
         date: "10 July 2026",
         time: "08:00 PM- 09:00 PM  IST",
-        image: "/assets/programm/episode7_new.png",
+        image: "/assets/programm/episode7_updated.png",
         // link: "https://youtube.com/live/Tc4TtJUNCbQ",
         // link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
         label: "Episode 07",
@@ -97,8 +97,8 @@ const HeroInstagram: React.FC<Props> = ({
     if (!mounted) return null;
 
     return (
-        <section 
-            id="hero-instagram" 
+        <section
+            id="hero-instagram"
             className="block pt-24 pb-24 overflow-hidden relative"
             style={{
                 backgroundImage: 'url(/assets/eyebanner.png)',
@@ -109,7 +109,7 @@ const HeroInstagram: React.FC<Props> = ({
         >
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/40"></div>
-            
+
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
                 {/* Centered Title Section */}
                 <div className="text-center mb-16">
@@ -118,7 +118,7 @@ const HeroInstagram: React.FC<Props> = ({
                         <span className="text-[9px] font-black uppercase tracking-[0.3em]">Surgical Video Discussions</span>
                     </div>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-tighter leading-tight mb-4">
-                         <span className="font-bold">Ophthall Surgical Club</span>
+                        <span className="font-bold">Ophthall Surgical Club</span>
                     </h2>
                     <p className="text-lg text-white/90 max-w-2xl mx-auto">
                         Explore surgical video discussions, gain insights from expert surgeons, and connect with ophthalmologists worldwide.
@@ -137,8 +137,13 @@ const HeroInstagram: React.FC<Props> = ({
                                 <Image
                                     src={upcomingEpisode.image}
                                     alt={upcomingEpisode.title}
-                                    fill
-                                    className="object-cover opacity-95 transition-all duration-700"
+                                    width={1200}
+                                    height={800}
+                                    className="w-full object-cover opacity-95 transition-all duration-700"
+                                    style={{
+                                        width: "100%",
+                                        height: "auto",
+                                    }}
                                     sizes="(max-width: 1024px) 100vw, 40vw"
                                 />
                             </div>
@@ -163,13 +168,13 @@ const HeroInstagram: React.FC<Props> = ({
                                 <div className="flex flex-col gap-6 mb-5">
                                     <div className="flex flex-wrap items-center gap-3">
                                         <div className="flex items-center gap-2.5 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-white/10">
-                                                <Calendar className="w-4 h-4 text-ophthall-orange" />
-                                                <span className="text-[12px] font-bold text-white">{upcomingEpisode.date}</span>
-                                            </div>
-                                            <div className="flex items-center gap-2.5 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-white/10">
-                                                <Clock className="w-4 h-4 text-ophthall-orange" />
-                                                <span className="text-[12px] font-bold text-white">{upcomingEpisode.time}</span>
-                                            </div>
+                                            <Calendar className="w-4 h-4 text-ophthall-orange" />
+                                            <span className="text-[12px] font-bold text-white">{upcomingEpisode.date}</span>
+                                        </div>
+                                        <div className="flex items-center gap-2.5 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-white/10">
+                                            <Clock className="w-4 h-4 text-ophthall-orange" />
+                                            <span className="text-[12px] font-bold text-white">{upcomingEpisode.time}</span>
+                                        </div>
                                     </div>
                                     <p className="text-xl leading-snug italic text-white/90 font-medium">
                                         "{upcomingEpisode.title}"
