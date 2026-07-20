@@ -75,18 +75,18 @@ const episodes = [
         // link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
         label: "Episode 07",
         type: "previous"
+    },
+      {
+        id: "08",
+        title: "Cataract surgery in extreme eyes and LASIK workup",
+        date: "24 July 2026",
+        time: "08:00 PM- 09:00 PM  IST",
+        image: "/assets/programm/episode8.png",
+        // link: "https://youtube.com/live/cTLmehj434c",
+        // link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
+        label: "Episode 08",
+        type: "upcoming"
     }
-    //   {
-    //     id: "07",
-    //     title: "PCR Management and 4D Phaco For Cataract Surgery",
-    //     date: "10 July 2026",
-    //     time: "08:00 PM- 09:00 PM  IST",
-    //     image: "/assets/programm/episode7_updated.png",
-    //     // link: "https://youtube.com/live/cTLmehj434c",
-    //     // link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
-    //     label: "Episode 07",
-    //     type: "upcoming"
-    // }
 ];
 
 const ProgrammeSection: React.FC = () => {
