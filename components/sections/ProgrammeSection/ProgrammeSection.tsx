@@ -82,10 +82,10 @@ const episodes = [
         date: "24 July 2026",
         time: "08:00 PM- 09:00 PM  IST",
         image: "/assets/programm/episode8.png",
-        // link: "https://youtube.com/live/cTLmehj434c",
+        link: "https://www.youtube.com/live/i8buiE4xUJk?si=PkVdvpTHtTUe0SoN",
         // link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
         label: "Episode 08",
-        type: "upcoming"
+        type: "previous"
     }
 ];
 
