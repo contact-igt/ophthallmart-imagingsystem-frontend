@@ -96,6 +96,17 @@ const episodes = [
         // link: "https://www.youtube.com/live/i8buiE4xUJk?si=PkVdvpTHtTUe0SoN",
         // link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
         label: "Episode 09",
+        type: "previous"
+    },
+      {
+        id: "10",
+        title: "Surgical Audit Of Routine Cataract Cases",
+        date: "21 Aug 2026",
+        time: "08:00 PM- 09:00 PM  IST",
+        image: "/assets/programm/episode10.png",
+        // link: "https://youtube.com/live/i8buiE4xUJk?si=PkVdvpTHtTUe0SoN",
+        // link: "https://us06web.zoom.us/meeting/register/T2UjmxErSZGQRFE_Ww33eA",
+        label: "Episode 10",
         type: "upcoming"
     }
 ];
